@@ -1,0 +1,10 @@
+*.elc
+*~
+/.cache/
+/.emacsprj/
+/my.private*
+/games
+/elpa
+/.lsp-session*
+/.org-id-locations
+/url

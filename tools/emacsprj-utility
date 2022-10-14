@@ -1,0 +1,121 @@
+#!/bin/bash
+
+function oops() {
+    echo "$@" >&2
+    exit 1
+}
+
+# arguments checking
+[ "$#" != 2 ] && oops Usage: DIR CMD
+EMACSPRJ_TOP_DIR=$(readlink -f "$1")
+CMD=$2
+
+# basic emacsprj variables
+EMACSPRJ_CONTROL_DIR=${EMACSPRJ_TOP_DIR}/.emacsprj
+[ ! -d "$EMACSPRJ_CONTROL_DIR" ] && \
+    oops "Emacsprj control directory \"${EMACSPRJ_CONTROL_DIR}\" doesn't exist"
+EMACSPRJ_DATADIR=${EMACSPRJ_CONTROL_DIR}/data
+[ ! -d "$EMACSPRJ_DATADIR" ] && mkdir "$EMACSPRJ_DATADIR"
+EMACSPRJ_AUTOCONFIG_RC=${EMACSPRJ_CONTROL_DIR}/autoconfig.rc
+EMACSPRJ_AUTOCONFIG_FILE=${EMACSPRJ_DATADIR}/autoconfig.el
+EMACSPRJ_SYNC_TIMESTAMP=${EMACSPRJ_DATADIR}/sync.timestamp
+
+# read rc
+. "$EMACSPRJ_AUTOCONFIG_RC" || \
+    oops "Read emacsprj autoconig file \"$EMACSPRJ_AUTOCONFIG_RC\" failed"
+
+# check sources
+# SOURCES: IDs of sources
+# SOURCE_DIR_$id: Directory of source $id
+# SOURCE_FILES_FUNCTION_$id: Functions that outputs files list of source $id
+[ -z "$SOURCES" ] && oops Variable SOURCES is not defined in rc file
+for source in ${SOURCES};do
+    source_name_ref=SOURCE_NAME_$source
+    source_dir_ref=SOURCE_DIR_$source
+    source_dir_realname_ref=SOURCE_DIR_REALNAME_$source
+
+    [ -z "${!source_name_ref}" ] && \
+        oops "Name of source $source is not defined"
+
+    [ -z "${!source_dir_ref}" ] && \
+        oops "Directory of source $source is not defined"
+
+    if [ -z "${!source_dir_ref##/*}" ];then
+        eval SOURCE_DIR_REALNAME_$source=$(readlink -f "${!source_dir_ref}")
+    else
+        eval SOURCE_DIR_REALNAME_$source=$(readlink -f "${EMACSPRJ_TOP_DIR}/${!source_dir_ref}")
+    fi
+    source_dir_realname=${!source_dir_realname_ref}
+    [ ! -d "$source_dir_realname" ] && \
+        oops "Directory of source $source doesn't exist: $source_dir_realname"
+done
+
+# EMACSPRJ_ENABLE_TAGS: Set non-nill if you're going to use tags
+# EMACSPRJ_ENABLE_CSCOPE: Set non-nill if you're going to use cscope
+# EMACSPRJ_ENABLE_EBROWSE: Set non-nill if you're going to use ebrowse
+
+function cmd_autoconfig() {
+    :> "${EMACSPRJ_AUTOCONFIG_FILE}"
+
+    {
+        # source dirs
+        echo '(setq ecb-source-path (list '
+        for source in ${SOURCES};do
+            source_dir_realname_ref=SOURCE_DIR_REALNAME_$source
+            source_name_ref=SOURCE_NAME_$source
+            echo "    (list \"${!source_dir_realname_ref}\" \"${!source_name_ref}\")"
+        done
+        echo '))'
+
+        # options
+        for opt in EMACSPRJ_ENABLE_TAGS \
+            EMACSPRJ_ENABLE_CSCOPE \
+            EMACSPRJ_ENABLE_EBROWSE;do
+            optvar=${!opt}
+            if [ -z "$optvar" ];then
+                optvar=nil
+            else
+                optvar=t
+            fi
+            echo "(puthash '$opt ${optvar} emacsprj-autoconfig-options)"
+        done
+    } >> "${EMACSPRJ_AUTOCONFIG_FILE}"
+
+    [ ! -f "${EMACSPRJ_SYNC_TIMESTAMP}" ] && cmd_sync
+
+    return 0
+}
+
+function cmd_sync() {
+    FILES_LIST=${EMACSPRJ_DATADIR}/files.list
+    for source in ${SOURCES};do
+        source_files_function_ref=SOURCE_FILES_FUNCTION_$source
+        source_dir_realname_ref=SOURCE_DIR_REALNAME_$source
+        SOURCE_DIR_REALNAME=${!source_dir_realname_ref}
+        [ "$(type -t ${source_files_function_ref})" == "function" ] && \
+            ${source_files_function_ref}
+    done > "${FILES_LIST}"
+
+    if [ ! -z "$EMACSPRJ_ENABLE_TAGS" ];then
+        rm -f "${EMACSPRJ_DATADIR}/TAGS"
+        cat ${FILES_LIST} | while read reffile; do
+            etags -o "${EMACSPRJ_DATADIR}/TAGS" -a "${reffile}" 
+        done
+    fi
+
+    if [ ! -z "$EMACSPRJ_ENABLE_CSCOPE" ];then
+        rm -f "${EMACSPRJ_DATADIR}/cscope*"
+        (cd ${EMACSPRJ_DATADIR};cscope -b -i ${FILES_LIST})
+    fi
+
+    if [ ! -z "$EMACSPRJ_ENABLE_EBROWSE" ];then
+        rm -f ${EMACSPRJ_DATADIR}/BROWSE
+        ebrowse -f ${FILES_LIST} -o ${EMACSPRJ_DATADIR}/BROWSE
+    fi
+
+    date > ${EMACSPRJ_SYNC_TIMESTAMP}
+
+    return 0
+}
+
+cmd_$CMD

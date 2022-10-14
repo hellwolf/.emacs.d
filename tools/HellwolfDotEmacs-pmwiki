@@ -1,0 +1,35 @@
+#!/bin/sh
+. $(dirname "$0")/common.sh
+
+OUTPUT_FILE=${MY_EMACS_DATA_PATH}/HellwolfDotEmacs-pmwiki.txt
+
+{
+    cat <<EOF
+!! Introduction
+
+* Summary: Hellwolf's emacs configurations.
+
+* Author: ZC Miao <helwolf.misty@gmail.com>
+
+* Last Update: $(date)
+
+* Git Repository: http://linuxfire.com.cn/~hellwolf/git/HellwolfDotEmacs.git/
+
+* Gitweb: http://linuxfire.com.cn/~hellwolf/cgi-bin/gitweb.cgi?p=HellwolfDotEmacs.git;a=summary
+
+* Get a full copy from git:
+(:source lang=bash:)[=
+$ git-clone http://linuxfire.com.cn/~hellwolf/git/HellwolfDotEmacs.git/
+=]
+
+!! Files List:
+
+EOF
+    for ELFILE in ${MY_EMACS_DOT_PATH}/dotemacs.el ${MY_EMACS_EL_PATH}/*.el;do
+        ELFILE_REL=${ELFILE#${MY_EMACS_DOT_PATH}/}
+        echo "'''''File: $ELFILE_REL'''''"
+        echo '(:source lang=elisp:) [''='
+        cat ${ELFILE}
+        echo '='']'
+    done 
+} > "${OUTPUT_FILE}"

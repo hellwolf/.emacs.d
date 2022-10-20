@@ -26,9 +26,14 @@
 (require 'package)
 
 ;; Selected package archives
-(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(setq package-archives
+      '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
+        ("MELPA Stable" . "https://stable.melpa.org/packages/")
+        ("MELPA"        . "https://melpa.org/packages/"))
+      package-archive-priorities
+      '(("MELPA Stable" . 10)
+        ("GNU ELPA"     . 5)
+        ("MELPA"        . 0)))
 (package-initialize)
 
 ;; Its neccesary to update your repos on first install
@@ -47,8 +52,7 @@
 (setq
   use-package-always-ensure t
   use-package-compute-statistics t
-  use-package-verbose t
-  use-package-always-defer t)
+  use-package-verbose t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Loading Options

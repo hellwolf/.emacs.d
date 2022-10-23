@@ -9,7 +9,7 @@
   :custom
   (org-support-shift-select 'always)
   (org-adapt-indentation nil)
-  (org-hide-emphasis-markers t)
+  ;; (org-hide-emphasis-markers t)
   ;; better inline image preview
   (org-image-actual-width nil)
   ;; org-todo
@@ -51,10 +51,11 @@
                         (mono-font
                           (cond
                             ((x-list-fonts   "Fira Sans") '(:font   "Fira Sans"))
+                            ((x-family-fonts "Monospace") '(:family "Monospace"))
                             (nil (warn "Cannot find a mono font."))))
                         (sans-font
                           (cond
-                            ((x-list-fonts   "Noto Sans")  '(:font   "Noto Sans"))
+                            ((x-list-fonts   "Fira Sans")  '(:font   "Fira Sans"))
                             ((x-family-fonts "Sans Serif") '(:family "Sans Serif"))
                             (nil (warn "Cannot find a sans serif font."))))
                         (base-font-color (face-foreground 'default nil 'default))
@@ -74,9 +75,9 @@
                     `(org-level-2               ((t (,@levelline ,@sans-font :height 1.20))))
                     `(org-level-1               ((t (,@levelline ,@sans-font :height 1.40))))
                     `(org-document-title        ((t (,@titleline ,@sans-font :height 1.50))))
-                    `(org-document-info         ((t (,@docinfo   ,@mono-font  :height 1.30))))
-                    `(org-document-info-keyword ((t (,@docinfo   ,@mono-font  :height 1.30))))
-                    `(org-meta-line             ((t (,@metaline  ,@mono-font  :height 1.20))))
+                    `(org-document-info         ((t (,@docinfo   ,@mono-font :height 1.30))))
+                    `(org-document-info-keyword ((t (,@docinfo   ,@mono-font :height 1.30))))
+                    `(org-meta-line             ((t (,@metaline  ,@mono-font :height 1.20))))
                     )))))
 
 ;; org-reveal

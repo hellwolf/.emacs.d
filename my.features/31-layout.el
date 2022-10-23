@@ -14,8 +14,11 @@
 
 (set-mouse-color "yellow")
 
-(set-frame-font "Fira Code-10")
-(set-face-attribute 'default nil :font "Fira Code-10")
+(defun use-my-face-attributes (&optional frame)
+  (set-face-attribute 'default nil :family "Fira Code" :height 100)
+  (set-face-attribute 'italic  nil :family "Liberation Mono"))
+(add-hook 'window-setup-hook 'use-my-face-attributes)
+(add-hook 'after-make-frame-functions 'use-my-face-attributes)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Buffer

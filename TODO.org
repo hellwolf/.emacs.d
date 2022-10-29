@@ -1,0 +1,11 @@
+* Features
+- [-] org-mode font faces
+- [ ] clipboard/kill-ring system
+- [ ] search system
+- [ ] backup system
+  - VCS files?
+* Utilities
+- [ ] magit setup
+- [ ] rcirc configuration
+* Framework
+- [ ] Side Window Manager

@@ -71,7 +71,7 @@
       ((c (my-catfile my-private-el-path "99-default-custom.el")))
       (delete-file c)
       (setq custom-file c)
-      (customize-save-customized))))
+      (ignore-errors (customize-save-customized)))))
 
 ;; Command line option "-P" to open an `.emacs-project`
 (add-to-list

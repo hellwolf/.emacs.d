@@ -63,8 +63,6 @@
   (progn
     ;; load all
     (my-load-el-directory my-features-path)
-    ;; local deployment settings
-    (setq custom-file (my-catfile my-private-el-path "98-local-custom.el"))
     (my-load-el-directory my-private-el-path)
     ;; save default-custom.el
     (let
@@ -93,3 +91,6 @@
 (add-to-list
   'command-switch-alist
   '("--load-hw-emacs" . (lambda (switch) (load-hw-emacs))))
+
+;; local deployment settings
+(setq custom-file (my-catfile my-private-el-path "98-local-custom.el"))

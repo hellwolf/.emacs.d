@@ -2,6 +2,7 @@
 (require 'evil-core nil t)
 
 (use-package evil
+  :pin MELPA
   :custom
   ;; using undo-tree
   (evil-undo-system 'undo-tree)

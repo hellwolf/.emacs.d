@@ -52,7 +52,7 @@
                 (let* (
                         (mono-font
                           (cond
-                            ((x-list-fonts   "Fira Sans") '(:font   "Fira Sans"))
+                            ((x-list-fonts   "Fira Mono") '(:font   "Fira Mono"))
                             ((x-family-fonts "Monospace") '(:family "Monospace"))
                             (nil (warn "Cannot find a mono font."))))
                         (sans-font

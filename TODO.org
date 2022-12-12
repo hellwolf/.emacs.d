@@ -9,3 +9,5 @@
 - [ ] rcirc configuration
 * Framework
 - [ ] Side Window Manager
+* Misc
+- [-] Pin MELPA or MELPA Stable for some packages

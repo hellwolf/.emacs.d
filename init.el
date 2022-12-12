@@ -31,9 +31,9 @@
         ("MELPA Stable" . "https://stable.melpa.org/packages/")
         ("MELPA"        . "https://melpa.org/packages/"))
       package-archive-priorities
-      '(("MELPA Stable" . 10)
-        ("GNU ELPA"     . 5)
-        ("MELPA"        . 0)))
+      '(("MELPA"        . 10)
+        ("GNU ELPA"     .  5)
+        ("MELPA Stable" .  0)))
 (package-initialize)
 
 ;; Its neccesary to update your repos on first install

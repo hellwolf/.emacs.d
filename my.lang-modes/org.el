@@ -4,7 +4,7 @@
 (require 'my-lib)
 
 (use-package org
-  :pin MELPA
+  :pin "MELPA"
   :hook
   (org-mode . org-indent-mode)
   :custom
@@ -31,7 +31,7 @@
 ;; Beautify Org
 ;; https://github.com/zzamboni/dot-emacs/blob/master/init.org#beautifying-org-mode
 (use-package org-bullets
-  :pin MELPA
+  :pin "MELPA"
   :after (org)
   :custom
   (prettify-symbols-unprettify-at-point 'right-edge)
@@ -84,7 +84,7 @@
 
 ;; org-reveal
 (use-package ox-reveal
-  :pin MELPA
+  :pin "MELPA"
   :after (org htmlize)
   :custom
   ;;(org-reveal-root (my-catfile (getenv "HOME") "Applications" "reveal.js"))
@@ -92,7 +92,7 @@
 
 ;; evil-org
 (use-package evil-org
-  :pin MELPA
+  :pin "MELPA"
   :after (org)
   :hook (org-mode . evil-org-mode))
 

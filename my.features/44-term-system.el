@@ -10,7 +10,7 @@
   (interactive)
   (let ((term-name (concat "term-" (int-to-string my-term-number))))
     (setq my-term-number (1+ my-term-number))
-    (make-term term-name "/bin/bash")
+    (make-term term-name "bash")
     (my-term-pop-to (get-buffer (concat "*" term-name "*")))
     (term-mode)
     (term-char-mode)

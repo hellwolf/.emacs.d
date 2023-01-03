@@ -6,6 +6,7 @@
 ;; tab width
 (setq tab-width 4)
 (setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
 
 ;; https://stackoverflow.com/questions/13574564/emacs-automatically-adding-a-newline-even-after-changing-emacs
 (setq mode-require-final-newline nil)

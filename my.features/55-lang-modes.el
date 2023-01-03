@@ -57,12 +57,11 @@
 (defun my-prog-mode-hook ()
   ;; highlight tabs
   (font-lock-add-keywords nil my-extra-keywords)
-  ;; no tabs
-  (setq indent-tabs-mode nil)
   ;; underscore as word for snake cases
   (modify-syntax-entry ?_ "w")
-  ;; support some greek letters too
-  (mapc (lambda (l) (modify-syntax-entry l "w")) greek-letters)
+  ;; TODO support some greek letters too, seems not needed?
+  ;; (modify-syntax-entry '(?α . ?ω) "w")
+  ;; (modify-syntax-entry '(?Α . ?Ω) "w")
   ;; diminishes
   (diminish #'eldoc-mode)
   (diminish #'hs-minor-mode)

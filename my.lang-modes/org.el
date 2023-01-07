@@ -72,7 +72,7 @@
                     `(org-level-7               ((t (,@levelline ,@sans-font))))
                     `(org-level-6               ((t (,@levelline ,@sans-font))))
                     `(org-level-5               ((t (,@levelline ,@sans-font))))
-                    `(org-level-4               ((t (,@levelline ,@sans-font :height 1))))
+                    `(org-level-4               ((t (,@levelline ,@sans-font :height 1.00))))
                     `(org-level-3               ((t (,@levelline ,@sans-font :height 1.10))))
                     `(org-level-2               ((t (,@levelline ,@sans-font :height 1.20))))
                     `(org-level-1               ((t (,@levelline ,@sans-font :height 1.40))))

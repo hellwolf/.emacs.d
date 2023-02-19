@@ -35,3 +35,7 @@
         :to-hook        'haskell-mode-hook
         :org-babel-lang 'haskell)
   my-prog-lang-modes)
+
+;; https://emacs.stackexchange.com/questions/53667/how-to-disable-stack-with-flycheck-for-haskell
+;; it is very slow
+(add-to-list 'flycheck-disabled-checkers 'haskell-stack-ghc)

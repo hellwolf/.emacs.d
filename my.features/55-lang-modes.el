@@ -20,7 +20,7 @@
 
 ;; make white space visible
 (defface extra-whitespace-face
-  '((t (:background "pale green")))
+  '((t (:inherit default :background "pale green")))
   "Used for tabs and such."
   :group 'my-lang-modes)
 (defvar my-extra-keywords '(("\t" . 'extra-whitespace-face)))

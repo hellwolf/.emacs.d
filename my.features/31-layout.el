@@ -9,8 +9,8 @@
   '(custom-enabled-themes (quote (tango-dark))))
 
 (custom-set-faces
-  '(line-number-current-line ((t (:foreground "orange"))))
-  '(term-color-blue ((t (:background "royal blue" :foreground "royal blue")))))
+  '(line-number-current-line ((t (:inherit default :foreground "orange"))))
+  '(term-color-blue ((t (:inherit default :background "royal blue" :foreground "royal blue")))))
 
 (set-mouse-color "yellow")
 

@@ -21,7 +21,7 @@
   (which-key-mode t))
 (use-package which-key-posframe
   :config
-  (set-face-attribute 'which-key-posframe nil :background nil)
+  (set-face-attribute 'which-key-posframe nil :inherit default :background nil)
   :init
   (which-key-posframe-mode t)
   :custom

@@ -21,8 +21,8 @@
 (defun emacs-project-fzf-find-file ()
   (interactive)
   (if (vc-root-dir)
-    (fzf-with-command "git ls-files" #'fzf/action-find-file emacs-project-root-directory)
-    (fzf-find-file emacs-project-root-directory)))
+    (fzf-with-command "git ls-files" #'fzf/action-find-file (vc-root-dir))
+    (fzf-find-file (vc-root-dir))))
 
 (defun emacs-project-grep-file ()
   (interactive)

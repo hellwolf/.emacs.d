@@ -20,9 +20,8 @@
   :init
   (which-key-mode t))
 (use-package which-key-posframe
-  :config
-  (set-face-attribute 'which-key-posframe nil :inherit default :background nil)
   :init
   (which-key-posframe-mode t)
   :custom
+  (set-face-attribute 'which-key-posframe nil :inherit default :background nil)
   (which-key-posframe-poshandler 'posframe-poshandler-frame-bottom-left-corner))

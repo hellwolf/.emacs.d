@@ -15,7 +15,7 @@
 (defvar my-private-el-path (my-catfile user-emacs-directory "my.private"))
 
 ;; other settings
-(setq debug-on-error nil)
+(setq debug-on-error init-file-debug)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Package System

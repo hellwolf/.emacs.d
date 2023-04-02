@@ -5,11 +5,11 @@
   :config
   (defun my-tabbar-buffer-groups ()
     (list (cond
-            ((string-prefix-p "*term-" (buffer-name))                   "terms")
-            ((string-prefix-p "*scratch" (buffer-name))                 "scratches")
-            ((string-match "[@*]irc\..*[*]?$" (buffer-name))            "irc")
-            ((string-equal "*" (substring (buffer-name) 0 1))           "info")
-            (t                                                          "user"))))
+            ((string-prefix-p "*term " (buffer-name))         "terms")
+            ((string-prefix-p "*scratch" (buffer-name))       "scratches")
+            ((string-match "[@*]irc\..*[*]?$" (buffer-name))  "irc")
+            ((string-equal "*" (substring (buffer-name) 0 1)) "info")
+            (t                                                "user"))))
   (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
   :init
   (tabbar-mode))

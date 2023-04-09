@@ -82,14 +82,6 @@
                     `(org-meta-line             ((t (,@metaline  ,@mono-font :height 1.20))))
                     )))))
 
-;; org-reveal
-(use-package ox-reveal
-  :pin "MELPA"
-  :after (org htmlize)
-  :custom
-  ;;(org-reveal-root (my-catfile (getenv "HOME") "Applications" "reveal.js"))
-  (org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@4.3.1"))
-
 ;; evil-org
 (use-package evil-org
   :pin "MELPA"

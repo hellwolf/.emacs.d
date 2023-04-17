@@ -108,6 +108,9 @@
 ;; set default major mode
 (setq-default major-mode 'text-mode)
 
+;; make flycheck-disabled-checkers default
+(setq-default flycheck-disabled-checkers flycheck-disabled-checkers)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key Bindings (F5-F9)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

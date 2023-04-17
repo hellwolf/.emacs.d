@@ -4,7 +4,7 @@
 (defun my-emacs-lisp-mode-hook ()
   (modify-syntax-entry ?- "w"))
 
-(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+(add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc)
 
 (push (make-my-lang-mode
         :to-hook        'emacs-lisp-mode-hook

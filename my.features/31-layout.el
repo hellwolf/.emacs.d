@@ -4,8 +4,6 @@
 ;; Frame Theme
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
-  '(ansi-color-faces-vector
-     [default default default italic underline success warning error])
   '(custom-enabled-themes (quote (tango-dark))))
 
 (custom-set-faces
@@ -15,8 +13,8 @@
 (set-mouse-color "yellow")
 
 (defun use-my-face-attributes (&optional frame)
-  (set-face-attribute 'default nil :family "Fira Code" :height 100)
-  (set-face-attribute 'italic  nil :family "Liberation Mono"))
+  (set-face-attribute 'default nil :family "Fira Code")
+  (set-face-attribute 'italic  nil :family "Liberation Mono" :slant 'italic))
 (add-hook 'window-setup-hook 'use-my-face-attributes)
 (add-hook 'after-make-frame-functions 'use-my-face-attributes)
 
@@ -25,26 +23,33 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; blink-cursor-mode
 (blink-cursor-mode)
+
 ;; A utility package to collect various Icon Fonts and propertize them within Emacs
-;; (defvar all-the-icons)
-(use-package all-the-icons
-  :if (display-graphic-p))
+(use-package all-the-icons :if (display-graphic-p))
+
 ;; set paren mode
 (require 'paren)
 (show-paren-mode t)
-(setq show-paren-style 'parentheses)
+(setq show-paren-style 'mixed)
+
 ;; color highlighting
 (global-font-lock-mode t)
+
 ;; highlight-symbol.el
 (use-package highlight-symbol)
+
+;; reload file on changes
 ;; https://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk
 (global-auto-revert-mode t)
-;; truncate lines
+
+;; truncate lines automatically
 (set-default 'truncate-lines t)
 (setq-default show-trailing-whitespace t)
+
 ;; display full column indicator (emacs 27+)
 (if (fboundp 'global-display-fill-column-indicator-mode)
   (global-display-fill-column-indicator-mode))
+
 ;; mark tweaks
 (transient-mark-mode t)
 (setq mark-even-if-inactive t)

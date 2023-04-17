@@ -4,8 +4,9 @@
 (use-package evil
   :pin "MELPA"
   :custom
-  ;; using undo-tree
+  ;; undo behaviour
   (evil-undo-system 'undo-tree)
+  (evil-want-fine-undo 'yes)
   ;; evil search
   (evil-select-search-module 'evil-search-module 'evil-search)
   ;; stick to emacs bindings in evil insert mode

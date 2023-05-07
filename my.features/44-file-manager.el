@@ -21,14 +21,14 @@
 (defun emacs-project-fzf-find-file ()
   (interactive)
   (if (vc-root-dir)
-    (fzf-with-command "git ls-files" #'fzf--action-find-file (vc-root-dir))
-    (fzf-find-file (vc-root-dir))))
+      (fzf-with-command "git ls-files" #'fzf--action-find-file (vc-root-dir))
+    (fzf-find-file emacs-project-root-directory)))
 
 (defun emacs-project-grep-file ()
   (interactive)
   (if (vc-root-dir)
-    (call-interactively 'vc-git-grep)
-    (call-interactively 'rgrep)))
+      (call-interactively 'vc-git-grep)
+    (let ((default-directory emacs-project-root-directory)) (call-interactively 'rgrep))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key Bindings (F1, F4)
@@ -40,4 +40,3 @@
 (global-set-key (kbd "C-<f9>") 'treemacs)
 (global-set-key (kbd "C-x C-<f9> d") 'dired)
 (global-set-key (kbd "C-x 4 C-<f9> d") 'dired-other-window)
-;; (global-set-key (kbd "S-<f9>") 'emacs-project-grep-file)

@@ -21,5 +21,6 @@
     ;; load .emacs-project.el
     (if (file-readable-p project-el-file) (load project-el-file))
     (if (file-readable-p project-el-file2) (load project-el-file2))
+    ;; other hooks
     (add-hook 'kill-emacs-hook
       `(lambda () (ignore-errors (desktop-save ,data-dir t))))))

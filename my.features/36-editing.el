@@ -17,6 +17,7 @@
 ;; autofill mode
 (auto-fill-mode -1)
 (setq-default fill-column 120)
+(diminish 'auto-fill-mode)
 
 ;; typed text replaces the selection
 (delete-selection-mode t)
@@ -48,6 +49,10 @@
 
 ;; wgrep
 (use-package wgrep)
+
+;; abbrev-mode on by default
+(setq-default abbrev-mode t)
+(diminish 'abbrev-mode)
 
 ;; input-method switching
 ;; https://stackoverflow.com/questions/10192341/how-to-enter-greek-characters-in-emacs

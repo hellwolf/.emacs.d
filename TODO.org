@@ -1,5 +1,5 @@
 * Features
-- [-] org-mode font faces
+- [x] org-mode font faces
 - [ ] clipboard/kill-ring system
 - [ ] search system
 - [ ] backup system

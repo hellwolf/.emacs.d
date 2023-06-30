@@ -9,10 +9,12 @@
 ;;; Each language modes has an entry in my.lang-modes/.
 
 ;; Modular in-buffer completion framework for Emacs
-(use-package company)
+(use-package company
+  :diminish "")
 
 ;; install lsp-mode
 (use-package lsp-mode
+  :diminish ""
   :config
   (add-hook 'lsp-configure-hook
     (lambda ()

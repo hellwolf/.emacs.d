@@ -1,26 +1,49 @@
 (require 'use-package)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Frame Theme
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(custom-set-variables
-  '(custom-enabled-themes (quote (tango-dark))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Frame
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; theme
+(use-package zenburn-theme
+  :init
+  (load-theme 'zenburn t))
 
 (custom-set-faces
   '(line-number-current-line ((t (:inherit default :foreground "orange"))))
   '(term-color-blue ((t (:inherit default :background "royal blue" :foreground "royal blue")))))
 
-(set-mouse-color "yellow")
+;; (set-mouse-color "yellow")
 
+;; font
 (defun use-my-face-attributes (&optional frame)
   (set-face-attribute 'default nil :family "Fira Code")
   (set-face-attribute 'italic  nil :family "Liberation Mono" :slant 'italic))
 (add-hook 'window-setup-hook 'use-my-face-attributes)
 (add-hook 'after-make-frame-functions 'use-my-face-attributes)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; default frame title
+(setq frame-title-format "%f (%b)") ;; TODO is the file changed?
+
+;; suppress welcome message
+(setq inhibit-startup-message t)
+
+;; disable some noises
+(tool-bar-mode 0)
+
+;; removing menu bar for terminal environment
+;; https://emacs.stackexchange.com/questions/29441/how-do-i-disable-menu-bar-mode-only-for-tty-frames
+(defun contextual-menubar (&optional frame)
+  "Display the menubar in FRAME (default: selected frame) if on a
+     graphical display, but hide it if in terminal."
+  (interactive)
+  (set-frame-parameter frame 'menu-bar-lines (if (display-graphic-p frame) 1 0)))
+(add-hook 'after-make-frame-functions 'contextual-menubar)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Buffer
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; blink-cursor-mode
 (blink-cursor-mode)
 
@@ -57,34 +80,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Mini Buffer
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; show column number
 (column-number-mode t)
+
 ;; Handy mode to make the modeline more succinct by allowing a diminished mode line string. Sometimes the fact that mode
 ;; is there is fine and it doesn't need to be on the mode line (diminish it to ""). Putting diminish first not out of
 ;; importance, but because it is used later on.
 (use-package diminish)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Frame
+;; Key Bindings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; default frame title
-(setq frame-title-format "%f (%b)")
-;; suppress welcome message
-(setq inhibit-startup-message t)
-;; disable some noises
-(tool-bar-mode 0)
-;; (menu-bar-mode 0)
 
-;; https://emacs.stackexchange.com/questions/29441/how-do-i-disable-menu-bar-mode-only-for-tty-frames
-;; (defun contextual-menubar (&optional frame)
-;;   "Display the menubar in FRAME (default: selected frame) if on a
-;;     graphical display, but hide it if in terminal."
-;;   (interactive)
-;;   (set-frame-parameter frame 'menu-bar-lines (if (display-graphic-p frame) 1 0)))
-;; (add-hook 'after-make-frame-functions 'contextual-menubar)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Key Bindings (<F11>)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-<f11>") 'make-frame)
-;; (global-set-key (kbd "<menu>") 'toggle-menu-bar-mode-from-frame)
+(global-set-key (kbd "C-x <menu>") 'toggle-menu-bar-mode-from-frame)

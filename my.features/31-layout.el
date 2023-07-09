@@ -6,14 +6,18 @@
 
 ;; theme
 (use-package zenburn-theme
+  :custom
+  (zenburn-override-colors-alist
+   '(("zenburn-bg+1"  . "#2F2F2F")
+     ("zenburn-bg+2"  . "#3F3F3F")
+     ("zenburn-bg+3"  . "#4F4F4F")
+     ("zenburn-bg+05" . "#282828")))
   :init
   (load-theme 'zenburn t))
 
 (custom-set-faces
-  '(line-number-current-line ((t (:inherit default :foreground "orange"))))
-  '(term-color-blue ((t (:inherit default :background "royal blue" :foreground "royal blue")))))
-
-;; (set-mouse-color "yellow")
+  ;; '(term-color-blue ((t (:inherit default :background "royal blue" :foreground "royal blue"))))
+  '(line-number-current-line ((t (:inherit default :foreground "orange")))))
 
 ;; font
 (defun use-my-face-attributes (&optional frame)

@@ -171,5 +171,14 @@
     ("xxPsi"     "Ψ")
     ("xxOmega"   "Ω")))
 
+
+(defconst emoji-abbrevs-table
+  '(("xxwip"         "🚧")
+    ("xxwarning"     "⚠")
+    ("xxnoentry"     "⛔")
+    ("xxgreencircle" "🟢")
+    ("xxredcircle"   "🔴")))
+
 (define-abbrev-table 'global-abbrev-table
-  (append math-abbrevs-table greek-abbrevs-table))
+  (append math-abbrevs-table greek-abbrevs-table
+          emoji-abbrevs-table))

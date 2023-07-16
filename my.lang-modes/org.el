@@ -14,7 +14,7 @@
   ;; better inline image preview
   (org-image-actual-width nil)
   ;; org-todo
-  (org-todo-keywords '((sequence "WIP" "AWAIT" "|" "TODO" "DELEGATED")))
+  (org-todo-keywords '((sequence "TODO" "WIP" "AWAIT" "|" "DONE" "DELEGATED")))
   ;; org-babel
   (org-confirm-babel-evaluate nil)
   ;; https://stackoverflow.com/questions/53469017/org-mode-source-editing-indents-code-after-exiting-source-code-block-editor

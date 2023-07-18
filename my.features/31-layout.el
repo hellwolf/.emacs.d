@@ -21,8 +21,13 @@
 
 ;; font
 (defun use-my-face-attributes (&optional frame)
-  (set-face-attribute 'default nil :family "Fira Code")
-  (set-face-attribute 'italic  nil :family "Liberation Mono" :slant 'italic))
+  (let ((spec-def "Fira Code")
+        (spec-alt "Liberation Mono"))
+    (set-face-attribute 'default nil :family spec-def)
+    (set-face-attribute 'italic  nil :family spec-alt :slant 'italic)
+    ;; See https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
+    ;; Math symbols to use the alternative mono font
+    (set-fontset-font t '(#x2200 . #x22FF) spec-alt)))
 (add-hook 'window-setup-hook 'use-my-face-attributes)
 (add-hook 'after-make-frame-functions 'use-my-face-attributes)
 

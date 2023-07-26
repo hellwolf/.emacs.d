@@ -177,7 +177,8 @@
     ("xxwarning"     "⚠")
     ("xxnoentry"     "⛔")
     ("xxgreencircle" "🟢")
-    ("xxredcircle"   "🔴")))
+    ("xxredcircle"   "🔴")
+    ("xxshrug"       "¯\_(ツ)_/¯")))
 
 (define-abbrev-table 'global-abbrev-table
   (append math-abbrevs-table greek-abbrevs-table

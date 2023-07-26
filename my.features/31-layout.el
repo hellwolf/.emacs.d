@@ -49,8 +49,9 @@
 
 ;; setup hooks
 (defun my-frame-setup-hook (&optional frame)
-  (use-my-face-attributes frame)
-  (set-frame-size frame 130 40))
+  (when window-system
+    (use-my-face-attributes frame)
+    (set-frame-size frame 130 40)))
 (add-hook 'window-setup-hook 'my-frame-setup-hook)
 (add-hook 'after-make-frame-functions 'my-frame-setup-hook)
 

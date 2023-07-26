@@ -19,7 +19,7 @@
   ;; '(term-color-blue ((t (:inherit default :background "royal blue" :foreground "royal blue"))))
   '(line-number-current-line ((t (:inherit default :foreground "orange")))))
 
-;; font
+;; fonts
 (defun use-my-face-attributes (&optional frame)
   (let ((spec-def "Fira Code")
         (spec-alt "Liberation Mono"))
@@ -28,8 +28,6 @@
     ;; See https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
     ;; Math symbols to use the alternative mono font
     (set-fontset-font t '(#x2200 . #x22FF) spec-alt)))
-(add-hook 'window-setup-hook 'use-my-face-attributes)
-(add-hook 'after-make-frame-functions 'use-my-face-attributes)
 
 ;; default frame title
 (setq frame-title-format "%f (%b)") ;; TODO is the file changed?
@@ -48,6 +46,13 @@
   (interactive)
   (set-frame-parameter frame 'menu-bar-lines (if (display-graphic-p frame) 1 0)))
 (add-hook 'after-make-frame-functions 'contextual-menubar)
+
+;; setup hooks
+(defun my-frame-setup-hook (&optional frame)
+  (use-my-face-attributes frame)
+  (set-frame-size frame 130 40))
+(add-hook 'window-setup-hook 'my-frame-setup-hook)
+(add-hook 'after-make-frame-functions 'my-frame-setup-hook)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Buffer

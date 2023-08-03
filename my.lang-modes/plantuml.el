@@ -1,7 +1,10 @@
 (require 'use-package)
 (require 'my-lib)
 
-(use-package plantuml-mode)
+(use-package plantuml-mode
+  :custom
+  (plantuml-jar-path (shell-command-to-string
+                       "trace-which plantuml | tail -n1 | sed 's:bin/plantuml:lib/plantuml.jar:' | tr -d '\\n'")))
 
 (push (make-my-lang-mode
         :to-hook        'plantuml-mode-hook

@@ -21,15 +21,18 @@
 
 ;; fonts
 (defun use-my-face-attributes (&optional frame)
-  (let ((spec-def "Fira Code")
-        (spec-alt "Liberation Mono")
-        (spec-color-emoji "Noto Color Emoji")
-    (set-face-attribute 'default nil :family spec-def)
-    (set-face-attribute 'italic  nil :family spec-alt :slant 'italic)
-    (set-fontset-font t 'emoji spec-color-emoji)
+  (let ((ff-def "Fira Code")
+        (ff-alt "Liberation Mono")
+        (ff-color-emoji "Noto Color Emoji"))
+    (set-face-attribute 'default nil :family ff-def)
+    (set-face-attribute 'italic  nil :family ff-alt :slant 'italic)
+    ;; https://en.wikipedia.org/wiki/Miscellaneous_Symbols
+    (set-fontset-font t '(#x002600 . #x0026ff) ff-color-emoji)
+    ;; https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)
+    (set-fontset-font t '(#x01f000 . #x01f64f) ff-color-emoji)
     ;; See https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
     ;; Math symbols to use the alternative mono font
-    (set-fontset-font t '(#x2200 . #x22FF) spec-alt)))
+    (set-fontset-font t '(#x002200 . #x0022FF) ff-alt)))
 
 ;; default frame title
 (setq frame-title-format "%f (%b)") ;; TODO is the file changed?

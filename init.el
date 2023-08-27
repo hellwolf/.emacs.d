@@ -11,8 +11,9 @@
 ;; setup directories
 (setq orig-user-emacs-directory user-emacs-directory)
 (setq my-tools-path (my-catfile user-emacs-directory "tools"))
+(defvar my-private-pre-el-path (my-catfile user-emacs-directory "my.private.pre"))
 (defvar my-features-path (my-catfile user-emacs-directory "my.features"))
-(defvar my-private-el-path (my-catfile user-emacs-directory "my.private"))
+(defvar my-private-post-el-path (my-catfile user-emacs-directory "my.private.post"))
 
 ;; other settings
 (setq debug-on-error init-file-debug)
@@ -58,17 +59,18 @@
 ;;; Loading Options
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(setq custom-file (my-catfile my-private-post-el-path "99-default-custom.el"))
+
 ;; save the default current settings
 (defun load-hw-emacs ()
   (progn
     ;; load all
+    (my-load-el-directory my-private-pre-el-path)
     (my-load-el-directory my-features-path)
-    (my-load-el-directory my-private-el-path)
+    (my-load-el-directory my-private-post-el-path)
     ;; save default-custom.el
     (let
-      ((c (my-catfile my-private-el-path "99-default-custom.el")))
       (delete-file c)
-      (setq custom-file c)
       (ignore-errors (customize-save-customized)))))
 
 ;; Command line option "-P" to open an `.emacs-project`
@@ -91,6 +93,3 @@
 (add-to-list
   'command-switch-alist
   '("--load-hw-emacs" . (lambda (switch) (load-hw-emacs))))
-
-;; local deployment settings
-(setq custom-file (my-catfile my-private-el-path "98-local-custom.el"))

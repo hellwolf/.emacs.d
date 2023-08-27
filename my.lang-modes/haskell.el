@@ -6,6 +6,7 @@
 (use-package haskell-mode
   :custom
   (haskell-stylish-on-save t)
+  (haskell-tags-on-save t)
   (haskell-font-lock-symbols t)
   ;; https://github.com/haskell/haskell-language-server/discussions/3105
   (lsp-lens-place-position 'above-line)
@@ -14,9 +15,11 @@
          (haskell-mode . haskell-doc-mode)
          (haskell-mode . lsp)
          (haskell-literate-mode . lsp))
-  :bind (;; https://emacs.stackexchange.com/questions/59254/how-to-bind-key-in-use-package/59269#59269
-         :map haskell-mode-map
-              ("C-x C-r" . #'my-haskell-load-and-run)))
+  :bind (:map haskell-mode-map
+         ;; https://emacs.stackexchange.com/questions/59254/how-to-bind-key-in-use-package/59269#59269
+         ("C-x C-r" . #'my-haskell-load-and-run)
+         :map interactive-haskell-mode-map
+         ("M-." . #'xref-find-definitions)))
 
 (use-package lsp-haskell)
 

@@ -4,6 +4,7 @@
 (require 'flycheck)
 
 (use-package haskell-mode
+  :pin manual
   :custom
   (haskell-stylish-on-save t)
   (haskell-tags-on-save t)
@@ -21,7 +22,8 @@
          :map interactive-haskell-mode-map
          ("M-." . #'xref-find-definitions)))
 
-(use-package lsp-haskell)
+(use-package lsp-haskell
+  :pin manual)
 
 (defun my-haskell-load-and-run()
   "Load and run the current Haskell file main function."

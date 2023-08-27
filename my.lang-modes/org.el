@@ -4,7 +4,6 @@
 (require 'my-lib)
 
 (use-package org
-  :pin "MELPA"
   :hook
   (org-mode . org-indent-mode)
   :custom
@@ -31,7 +30,6 @@
 ;; Beautify Org
 ;; https://github.com/zzamboni/dot-emacs/blob/master/init.org#beautifying-org-mode
 (use-package org-bullets
-  :pin "MELPA"
   :after (org)
   :custom
   (prettify-symbols-unprettify-at-point 'right-edge)
@@ -84,7 +82,6 @@
 
 ;; evil-org
 (use-package evil-org
-  :pin "MELPA"
   :after (org)
   :hook (org-mode . evil-org-mode))
 

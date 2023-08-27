@@ -10,10 +10,12 @@
 
 ;; Modular in-buffer completion framework for Emacs
 (use-package company
+  :pin manual
   :diminish "")
 
 ;; install lsp-mode
 (use-package lsp-mode
+  :pin manual
   :diminish ""
   :config
   (add-hook 'lsp-configure-hook
@@ -91,7 +93,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; support for language modes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package lsp-grammarly)
+(use-package lsp-grammarly
+  :pin manual)
 
 (defun my-text-mode-hook ()
   ;; diminishes

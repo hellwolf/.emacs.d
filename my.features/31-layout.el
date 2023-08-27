@@ -6,6 +6,7 @@
 
 ;; theme
 (use-package zenburn-theme
+  :pin manual
   :custom
   (zenburn-override-colors-alist
    '(("zenburn-bg+1"  . "#2F2F2F")

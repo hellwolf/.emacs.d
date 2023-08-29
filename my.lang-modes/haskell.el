@@ -7,7 +7,6 @@
   :pin manual
   :custom
   (haskell-stylish-on-save t)
-  (haskell-tags-on-save t)
   (haskell-font-lock-symbols t)
   ;; https://github.com/haskell/haskell-language-server/discussions/3105
   (lsp-lens-place-position 'above-line)

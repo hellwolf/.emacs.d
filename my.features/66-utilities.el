@@ -74,11 +74,11 @@
 If a scratch buffer does not exist, create it with the major mode set to that
 of the buffer from where this function is called.
 
-        COMMAND -> Open/switch to the `*scratch*' buffer
-    C-0 COMMAND -> Open/switch to a scratch buffer in `fundamental-mode'
-    C-- COMMAND -> Open/switch to a scratch buffer in the current buffer's major mode
-    C-u COMMAND -> Open/switch to a scratch buffer in `org-mode'
-C-u C-u COMMAND -> Open/switch to a scratch buffer in `emacs-elisp-mode'
+        COMMAND -> Toggle the `*scratch*' buffer
+    C-0 COMMAND -> Toggle a scratch buffer in `fundamental-mode'
+    C-- COMMAND -> Toggle a scratch buffer in the current buffer's major mode
+    C-u COMMAND -> Toggle a scratch buffer in `org-mode'
+C-u C-u COMMAND -> Toggle a scratch buffer in `emacs-elisp-mode'
 
 Return the scratch buffer opened.
 

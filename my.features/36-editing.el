@@ -1,6 +1,5 @@
 (require 'use-package)
-(require 'flycheck nil t)
-(require 'undo-tree nil t)
+(require 'etags nil t)
 (require 'my-lib)
 
 ;; tab width

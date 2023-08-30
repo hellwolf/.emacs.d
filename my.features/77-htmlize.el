@@ -1,5 +1,7 @@
 (require 'use-package)
 (require 'htmlize nil t)
+(require 'ox-html nil t)
+
 
 ;; https://emacs.stackexchange.com/questions/3374/set-the-background-of-org-exported-code-blocks-according-to-theme
 ;; http://fly.srk.fer.hr/~hniksic/emacs/htmlize.el
@@ -21,7 +23,7 @@ background of code to whatever theme I'm using's background"
         (format "<style type=\"text/css\">\n pre.src {background-color: %s; color: %s;}</style>\n"
                 my-pre-bg my-pre-fg))))))
 
-(add-hook 'org-export-before-processing-hook 'my/org-inline-css-hook)
+(add-hook 'org-export-before-processing-functions 'my/org-inline-css-hook)
 
 ;; htmlize buffer view immediately
 (defun my-htmlize-buffer-view ()

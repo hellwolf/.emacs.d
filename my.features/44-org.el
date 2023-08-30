@@ -1,5 +1,4 @@
 (require 'use-package)
-(require 'org-bullets nil t)
 (require 'evil-org-mode nil t)
 (require 'my-lib)
 

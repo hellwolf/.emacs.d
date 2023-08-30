@@ -1,6 +1,7 @@
 (require 'browse-url)
 (require 'my-lib)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; WSL2 Specifics
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -10,3 +11,7 @@
     browse-url-generic-program (my-catfile my-tools-path "wslviewpath")
     browse-url-generic-args '()
     browse-url-browser-function #'browse-url-generic))
+
+;; Local Variables:
+;; byte-compile-warnings: (not obsolete)
+;; End:

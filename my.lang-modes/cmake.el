@@ -1,4 +1,4 @@
-(require 'use-package nil)
+(require 'use-package)
 (require 'my-lib)
 
 (use-package cmake-mode

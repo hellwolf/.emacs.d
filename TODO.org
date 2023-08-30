@@ -10,4 +10,4 @@
 * Framework
 - [ ] Side Window Manager
 * Misc
-- [-] Pin MELPA or MELPA Stable for some packages
+- [-] Nix integration for package-archives

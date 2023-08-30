@@ -5,11 +5,8 @@
 ;; alternatives:
 ;; - https://emacs-helm.github.io/helm/
 ;; - https://oremacs.com/swiper/
-(use-package ido
-  :custom
-  (ido-everywhere t)
-  :init
-  (ido-mode t))
+(setq ido-everywhere t)
+(ido-mode t)
 
 ;; https://github.com/justbur/emacs-which-key
 ;; Perhaps one of the most useful extensions, this little gem will provide a list in the mini-buffer of the relevant

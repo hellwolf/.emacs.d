@@ -22,5 +22,5 @@ EOF
 
 nix build --dry-run --impure --expr "
     let pkgs = import <nixpkgs> {};
-    in import "$OUTPUT_FILE" pkgs pkgs.emacs29-gtk3
+    in import ./"$OUTPUT_FILE" pkgs pkgs.emacs29-gtk3
 "

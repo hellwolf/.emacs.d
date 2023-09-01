@@ -33,7 +33,13 @@
     (set-fontset-font t '(#x01f000 . #x01f64f) ff-color-emoji)
     ;; See https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
     ;; Math symbols to use the alternative mono font
-    (set-fontset-font t '(#x002200 . #x0022FF) ff-alt)))
+    (set-fontset-font t '(#x002200 . #x0022ff) ff-alt)
+    ;; https://en.wikipedia.org/wiki/Supplemental_Mathematical_Operators
+    (set-fontset-font t '(#x002a00 . #x002aff) ff-alt)
+    ;; https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-A
+    (set-fontset-font t '(#x0027C0 . #x0027ef) ff-alt)
+    ;; https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-B
+    (set-fontset-font t '(#x002980 . #x0029ff) ff-alt)))
 
 ;; default frame title
 (setq frame-title-format "%f (%b)") ;; TODO is the file changed?

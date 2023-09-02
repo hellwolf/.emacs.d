@@ -75,7 +75,8 @@
 (blink-cursor-mode)
 
 ;; A utility package to collect various Icon Fonts and propertize them within Emacs
-(use-package all-the-icons :if (display-graphic-p))
+(use-package all-the-icons
+  :if (display-graphic-p))
 
 ;; set paren mode
 (require 'paren)

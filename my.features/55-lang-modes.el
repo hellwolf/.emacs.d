@@ -73,8 +73,8 @@
 
 (mapc (lambda (x)
         (let ((m  (my-lang-mode-to-hook x))
-               (h  (my-lang-mode-my-hook x))
-               (ob (my-lang-mode-org-babel-lang x)))
+              (h  (my-lang-mode-my-hook x))
+              (ob (my-lang-mode-org-babel-lang x)))
           (add-lang-mode-hooks m)
           (add-hook m #'hs-minor-mode)
           (add-hook m #'flyspell-prog-mode)
@@ -85,7 +85,7 @@
           (add-hook m #'my-prog-mode-hook)
           (if h (add-hook m h))
           (if ob (push ob my-org-babel-languages))))
-  my-prog-lang-modes)
+      my-prog-lang-modes)
 (org-babel-do-load-languages 'org-babel-load-languages
   (mapcar (lambda (x) (cons x t)) my-org-babel-languages))
 
@@ -102,7 +102,7 @@
 
 (mapc (lambda (x)
         (let ((m (my-lang-mode-to-hook x))
-               (h (my-lang-mode-my-hook x)))
+              (h (my-lang-mode-my-hook x)))
           (add-lang-mode-hooks m)
           (add-hook m #'turn-on-auto-fill)
           (add-hook m #'flyspell-mode)

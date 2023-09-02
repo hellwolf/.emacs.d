@@ -9,18 +9,14 @@
   (c-set-offset 'arglist-intro '+)
   (c-set-offset 'innamespace 0))
 
-;; associate hpp files with c++-mode
-(setq auto-mode-alist
-  (append '(("\\.hpp$" . c++-mode))
-    auto-mode-alist))
-
 (push (make-my-lang-mode
         :to-hook 'c-mode-hook
         :my-hook #'my-cc-mode-hook
         :org-babel-lang 'C)
-  my-prog-lang-modes)
+      my-prog-lang-modes)
+
 (push (make-my-lang-mode
         :to-hook 'c++-mode-hook
         :my-hook #'my-cc-mode-hook
         :org-babel-lang 'C)
-  my-prog-lang-modes)
+      my-prog-lang-modes)

@@ -1,5 +1,6 @@
 (require 'my-lib)
 
+;; load agda-mode
 (let ((a (shell-command-to-string "which agda-mode &>/dev/null && agda-mode locate")))
   (if (not (string-empty-p a)) (load-file (let ((coding-system-for-read 'utf-8)) a))))
 

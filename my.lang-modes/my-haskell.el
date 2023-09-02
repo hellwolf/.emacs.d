@@ -1,7 +1,6 @@
-(require 'use-package)
 (require 'haskell nil t)
-(require 'my-lib)
 (require 'flycheck)
+(require 'my-lib)
 
 (use-package haskell-mode
   :pin manual
@@ -15,14 +14,15 @@
          (haskell-mode . haskell-doc-mode)
          (haskell-mode . lsp)
          (haskell-literate-mode . lsp))
-  :bind (:map haskell-mode-map
+  :bind (:map
+         haskell-mode-map
          ;; https://emacs.stackexchange.com/questions/59254/how-to-bind-key-in-use-package/59269#59269
          ("C-x C-r" . #'my-haskell-load-and-run)
-         :map interactive-haskell-mode-map
+         :map
+         interactive-haskell-mode-map
          ("M-." . #'xref-find-definitions)))
 
-(use-package lsp-haskell
-  :pin manual)
+(use-package lsp-haskell)
 
 (defun my-haskell-load-and-run()
   "Load and run the current Haskell file main function."
@@ -42,10 +42,10 @@
        :org-babel-lang 'haskell)
       my-prog-lang-modes)
 
-;; https://emacs.stackexchange.com/questions/53667/how-to-disable-stack-with-flycheck-for-haskell
-;; it is very slow
+;; Disabling stack-ghc flychecker when I am using stack, it is very slow otherwise.
+;; See: https://emacs.stackexchange.com/questions/53667/how-to-disable-stack-with-flycheck-for-haskell
 (add-to-list 'flycheck-disabled-checkers 'haskell-stack-ghc)
 
+;; Display lambda symbol instead of backslash.
 (custom-set-variables
- '(haskell-font-lock-symbols-alist '(("\\" . "λ")
-                                     )))
+ '(haskell-font-lock-symbols-alist '(("\\" . "λ"))))

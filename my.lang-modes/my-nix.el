@@ -1,4 +1,3 @@
-(require 'use-package)
 (require 'my-lib)
 
 (use-package nix-mode)

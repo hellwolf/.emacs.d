@@ -32,6 +32,7 @@ org
 org-bullets
 ox-reveal
 plantuml-mode
+python
 solidity-mode
 tabbar
 treemacs

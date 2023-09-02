@@ -4,7 +4,8 @@
 (require 'desktop)
 
 ;; editorconfig
-(use-package editorconfig :diminish)
+(use-package editorconfig
+  :diminish)
 
 (defun open-emacs-project (pdir)
   "Open a project configured with .emacs-project"

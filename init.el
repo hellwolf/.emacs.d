@@ -28,15 +28,15 @@
 
 ;; Selected package archives
 (setq package-archives
-      '(('ELPA-GNU     . "https://elpa.gnu.org/packages/")
-        ('ELPA-NONGNU  . "https://elpa.nongnu.org/nongnu/")
-        ('MELPA        . "https://melpa.org/packages/")
-        ('MELPA-STABLE . "https://stable.melpa.org/packages/"))
+      '(("ELPA-GNU"     . "https://elpa.gnu.org/packages/")
+        ("ELPA-NONGNU"  . "https://elpa.nongnu.org/nongnu/")
+        ("MELPA"        . "https://melpa.org/packages/")
+        ("MELPA-STABLE" . "https://stable.melpa.org/packages/"))
       package-archive-priorities
-      '(('MELPA        . 10)
-        ('ELPA-GNU     .  5)
-        ('ELPA-NONGNU  .  3)
-        ('MELPA-Stable .  0)))
+      '(("MELPA"        . 10)
+        ("ELPA-GNU"     .  5)
+        ("ELPA-NONGNU"  .  3)
+        ("MELPA-Stable" .  0)))
 (package-initialize)
 
 ;; Its neccesary to update your repos on first install

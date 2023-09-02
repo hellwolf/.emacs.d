@@ -1,16 +1,19 @@
+(require 'agda2-mode nil t)
 (require 'my-lib)
 
 ;; load agda-mode
-(let ((a (shell-command-to-string "which agda-mode &>/dev/null && agda-mode locate")))
-  (if (not (string-empty-p a)) (load-file (let ((coding-system-for-read 'utf-8)) a))))
+(let ((agda2-el (shell-command-to-string "which agda-mode &>/dev/null && agda-mode locate")))
+  (if (not (string-empty-p agda2-el)) (load-file agda2-el)))
 
-;; auto-load agda-mode for .agda and .lagda.md
-(setq auto-mode-alist
-      (append
-       '(("\\.agda\\'" . agda2-mode)
-         ("\\.lagda.md\\'" . agda2-mode))
-       auto-mode-alist))
-
-(push (make-my-lang-mode
-       :to-hook 'agda2-mode-hook)
-      my-prog-lang-modes)
+(when agda2-directory
+  (use-package agda2-mode
+    ;; Need to specify the directory manually
+    :load-path agda2-directory
+    :mode (;; For .lagda.md files used in the PLFA book.
+           ("\\.lagda.md\\'" . agda2-mode))
+    :bind (:map
+           agda2-mode-map
+           ("C-c C-/" . #'agda2-goto-definition-keyboard)))
+  (push (make-my-lang-mode
+         :to-hook 'agda2-mode-hook)
+        my-prog-lang-modes))

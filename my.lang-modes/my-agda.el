@@ -7,9 +7,7 @@
   (if (not (string-empty-p agda2-el)) (load-file agda2-el)))
 
 (when agda2-directory
-  (use-package agda2-mode
-    ;; Need to specify the directory manually
-    :load-path agda2-directory
+  (use-package agda2-mode :load-path agda2-directory ;; Need to specify the directory manually
     :mode (;; For .lagda.md files used in the PLFA book.
            ("\\.lagda.md\\'" . agda2-mode))
     :bind (:map

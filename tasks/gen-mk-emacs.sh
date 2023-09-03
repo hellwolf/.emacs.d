@@ -15,7 +15,7 @@ epkgs=$(grep 'use-package\s+(\w|-)+\)?$'  my.features/ my.lang-modes/ -REoh | \
 pkgs: emacsVariant: pkgs.buildEnv {
   name = "hw-emacs";
   paths = [((pkgs.emacsPackagesFor emacsVariant).emacsWithPackages (epkgs: with epkgs; [
-    $epkgs
+$epkgs
     ]))
   ];
 }

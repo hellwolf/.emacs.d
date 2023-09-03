@@ -3,7 +3,6 @@
 pkgs: emacsVariant: pkgs.buildEnv {
   name = "hw-emacs";
   paths = [((pkgs.emacsPackagesFor emacsVariant).emacsWithPackages (epkgs: with epkgs; [
-    agda2-mode
 all-the-icons
 bm
 browse-kill-ring

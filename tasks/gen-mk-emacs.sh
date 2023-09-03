@@ -22,7 +22,3 @@ pkgs: emacsVariant: pkgs.buildEnv {
 EOF
 } | tee "$OUTPUT_FILE"
 
-nix build --dry-run --impure --expr "
-    let pkgs = import <nixpkgs> {};
-    in import ./"$OUTPUT_FILE" pkgs pkgs.emacs29-gtk3
-"

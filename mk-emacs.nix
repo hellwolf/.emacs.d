@@ -3,7 +3,8 @@
 pkgs: emacsVariant: pkgs.buildEnv {
   name = "hw-emacs";
   paths = [((pkgs.emacsPackagesFor emacsVariant).emacsWithPackages (epkgs: with epkgs; [
-    all-the-icons
+    agda2-mode
+all-the-icons
 bm
 browse-kill-ring
 cmake-mode

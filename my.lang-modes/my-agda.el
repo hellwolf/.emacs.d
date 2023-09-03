@@ -1,5 +1,6 @@
-(require 'agda2-mode nil t)
 (require 'my-lib)
+
+(defvar agda2-directory) ;; to be redefined in "agda2.el"
 
 ;; load agda-mode
 (let ((agda2-el (shell-command-to-string "which agda-mode &>/dev/null && agda-mode locate")))

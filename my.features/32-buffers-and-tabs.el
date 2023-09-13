@@ -9,6 +9,7 @@
             ((string-prefix-p "*scratch" (buffer-name))       "scratches")
             ((string-match "[@*]irc\..*[*]?$" (buffer-name))  "irc")
             ((string-prefix-p "magit: " (buffer-name))        "magit")
+            ((string-prefix-p "TAGS<" (buffer-name))          "tags")
             ((string-equal "*" (substring (buffer-name) 0 1)) "info")
             (t                                                "user"))))
   (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)

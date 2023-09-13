@@ -6,7 +6,8 @@
 (defun solidity-load-buffer ()
   (interactive)
   (save-buffer (current-buffer))
-  (evil-ex-execute "!solc --via-ir --ir %"))
+  (let ((evil-ex-current-buffer (current-buffer))) (evil-ex-execute "!solc --via-ir --ir %")))
+;; with newer version: (evil-ex-execute "!solc --via-ir --ir %"))
 
 (use-package solidity-mode
   :bind (:map
@@ -21,7 +22,8 @@
 (defun yul-load-buffer ()
   (interactive)
   (save-buffer (current-buffer))
-  (evil-ex-execute "!solc --strict-assembly %"))
+  (let ((evil-ex-current-buffer (current-buffer))) (evil-ex-execute "!solc --strict-assembly %")))
+;; with newer version:  (evil-ex-execute "!solc --strict-assembly %"))
 
 (use-package yul-mode
   :bind (:map

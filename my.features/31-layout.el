@@ -27,6 +27,10 @@
         (ff-color-emoji "Noto Color Emoji"))
     (set-face-attribute 'default nil :family ff-def)
     (set-face-attribute 'italic  nil :family ff-alt :slant 'italic)
+    ;; https://en.wikipedia.org/wiki/Box_Drawing
+    ;; https://en.wikipedia.org/wiki/Block_Elements
+    ;; https://en.wikipedia.org/wiki/Geometric_Shapes_(Unicode_block)
+    (set-fontset-font t '(#x002500  .#x0025cf) ff-alt)
     ;; https://en.wikipedia.org/wiki/Miscellaneous_Symbols
     (set-fontset-font t '(#x002600 . #x0026ff) ff-color-emoji)
     ;; https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)

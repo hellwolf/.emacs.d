@@ -53,6 +53,9 @@
 (setq-default abbrev-mode t)
 (diminish 'abbrev-mode)
 
+;; search/replace configuration
+(setq case-fold-search nil)
+
 ;; input-method switching
 ;; https://stackoverflow.com/questions/10192341/how-to-enter-greek-characters-in-emacs
 (defun my-switch-to-greek()

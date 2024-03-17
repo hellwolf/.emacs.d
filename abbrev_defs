@@ -173,12 +173,13 @@
 
 
 (defconst emoji-abbrevs-table
-  '(("xxwip"         "🚧")
-    ("xxwarning"     "⚠")
-    ("xxnoentry"     "⛔")
-    ("xxgreencircle" "🟢")
-    ("xxredcircle"   "🔴")
-    ("xxshrug"       "¯\_(ツ)_/¯")))
+  '(("xxwip"          "🚧")
+    ("xxwarning"      "⚠")
+    ("xxnoentry"      "⛔")
+    ("xxgreencircle"  "🟢")
+    ("xxorangecircle" "🟠")
+    ("xxredcircle"    "🔴")
+    ("xxshrug"        "¯\_(ツ)_/¯")))
 
 (define-abbrev-table 'global-abbrev-table
   (append math-abbrevs-table greek-abbrevs-table

@@ -1,5 +1,7 @@
 (require 'haskell nil t)
-(require 'flycheck)
+(require 'haskell-doc nil t)
+(require 'lsp-mode nil t)
+(require 'flycheck nil t)
 (require 'my-lib)
 
 (use-package haskell-mode
@@ -10,8 +12,8 @@
   ;; https://github.com/haskell/haskell-language-server/discussions/3105
   (lsp-lens-place-position 'above-line)
   ;; (haskell-font-lock-symbols t)
-  :hook ((haskell-mode . haskell-mode-init)
-         (haskell-literate-mode . haskell-mode-init))
+  :hook ((haskell-mode . #'haskell-mode-init)
+         (haskell-literate-mode . #'haskell-mode-init))
   :bind (:map
          haskell-mode-map
          ;; https://emacs.stackexchange.com/questions/59254/how-to-bind-key-in-use-package/59269#59269

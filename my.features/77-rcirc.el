@@ -3,7 +3,6 @@
 (use-package rcirc
   :pin manual
   :custom
-  (truncate-lines nil)
   (rcirc-reconnect-delay 60)
   (rcirc-fill-column 80)
   (rcirc-omit-responses '("JOIN" "PART" "QUIT" "NICK" "AWAY" "NAMES"))
@@ -12,6 +11,7 @@
 )
 
 (defun my-rcirc-mode-hook ()
+  (setq truncate-lines nil)
   (flyspell-mode)
   (rcirc-omit-mode)
   (rcirc-track-minor-mode)

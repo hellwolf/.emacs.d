@@ -4,7 +4,7 @@
   :pin manual
   :custom
   (rcirc-reconnect-delay 60)
-  (rcirc-time-format "%Y-%m-%d %H:%M ")
+  (rcirc-time-format "%m-%d %H:%M ")
   (rcirc-fill-column 80)
   (rcirc-omit-responses '("JOIN" "PART" "QUIT" "NICK" "AWAY" "NAMES"))
   (rcirc-omit-unless-requested '("NAMES"))

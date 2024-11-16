@@ -3,10 +3,9 @@
 - [ ] clipboard/kill-ring system
 - [ ] search system
 - [ ] backup system
-  - VCS files?
 * Utilities
+- [x] rcirc configuration
 - [ ] magit setup
-- [ ] rcirc configuration
 * Framework
 - [ ] Side Window Manager
 * Misc

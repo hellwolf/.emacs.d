@@ -1,6 +1,55 @@
 (require 'use-package)
 (require 'tabbar nil t)
 
+;; Reference:
+;; - https://www.emacswiki.org/emacs/TabBarMode
+;; - customize the look: https://gist.github.com/3demax/1264635
+
+(use-package tabbar
+  :custom
+  (tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+  (tabbar-separator (quote (0.5)))
+
+  :custom-face
+  (tabbar-default
+   ((t (:inherit variable-pitch :background "gray20" :foreground "gray20" :height 0.95
+                 :box '(:line-width 5 :color "gray20" :style nil)))))
+
+  (tabbar-unselected
+   ((t (:inherit tabbar-default :background "gray30" :foreground "white"
+                 :box '(:line-width 5 :color "gray30" :style released-button)))))
+  (tabbar-modified
+   ((t (:inherit tabbar-default :background "gray30" :foreground "green"
+                 :box '(:line-width 5 :color "gray30" :style released-button)))))
+
+  (tabbar-selected
+   ((t (:inherit tabbar-default :background "gray85" :foreground "black" :height 1.05
+                 :box '(:line-width 5 :color "gray85" :style pressed-button)))))
+  (tabbar-selected-modified
+   ((t (:inherit tabbar-default :background "gray85" :foreground "red" :height 1.05
+                 :box '(:line-width 5 :color "gray85" :style pressed-button)))))
+
+  (tabbar-highlight
+   ((t (:inherit tabbar-default :background "white" :foreground "black" :underline t
+                 :box '(:line-width 5 :color "white" :style nil)))))
+
+  (tabbar-button
+   ((t (:inherit tabbar-default
+                 :box '(:line-width 1 :color "gray20" :style released-button)))))
+
+  (tabbar-separator ((t (:height 0.6 :background "gray20"))))
+
+  :init
+  (tabbar-mode))
+
+(defun tabbar-close-tab-callback (event)
+  (interactive "@e")
+  (when (tabbar-click-p event)
+    (let ((target (posn-string (event-start event)))
+          (b (current-buffer)))
+      (kill-buffer (tabbar-tab-value (get-text-property (cdr target) 'tabbar-tab (car target))))
+      (switch-to-buffer b))))
+
 (defun my-tabbar-buffer-groups ()
   (list (cond
          ((string-prefix-p "*term " (buffer-name))                "terms")
@@ -10,15 +59,6 @@
          ((string-prefix-p "TAGS<" (buffer-name))                 "tags")
          ((string-equal    "*" (substring (buffer-name) 0 1))     "info")
          (t                                                       "user"))))
-(use-package tabbar
-  :config
-  (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
-  :init
-  (tabbar-mode))
-
-;; to be tested when emacs 27
-;; (global-tab-line-mode)
-;; (tab-bar-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key Bindings (C-<tab>)
@@ -26,9 +66,11 @@
 ;; buffer & tabbar
 (global-set-key (kbd "C-<tab>") 'tabbar-forward-tab)
 (global-set-key (kbd "C-<iso-lefttab>") 'tabbar-backward-tab)
+(global-set-key (kbd "<header-line> C-<mouse-1>") 'tabbar-close-tab-callback)
 (global-set-key (kbd "C-x C-<tab>")
                 (lambda ()
                   "Switch to previously open buffer.
-Repeated invocations toggle between the two most recently open buffers."
+Repeated invocations toggle between the two most recently open
+buffers."
                   (interactive)
                   (switch-to-buffer (other-buffer (current-buffer) 1))))

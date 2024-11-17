@@ -2,6 +2,9 @@
 (require 'my-lib)
 
 
+;; Overide I=initial evil states for some major modes
+(evil-set-initial-state 'Buffer-menu-mode 'motion)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; WSL2 Specifics
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

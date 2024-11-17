@@ -63,10 +63,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key Bindings (C-<tab>)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; buffer & tabbar
+;; tabbar
 (global-set-key (kbd "C-<tab>") 'tabbar-forward-tab)
 (global-set-key (kbd "C-<iso-lefttab>") 'tabbar-backward-tab)
 (global-set-key (kbd "<header-line> C-<mouse-1>") 'tabbar-close-tab-callback)
+;; buffers
 (global-set-key (kbd "C-x C-<tab>")
                 (lambda ()
                   "Switch to previously open buffer.
@@ -74,3 +75,5 @@ Repeated invocations toggle between the two most recently open
 buffers."
                   (interactive)
                   (switch-to-buffer (other-buffer (current-buffer) 1))))
+;; Buffers-menu
+(global-set-key (kbd "C-x C-b") 'buffer-menu-other-window)

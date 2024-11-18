@@ -12,7 +12,7 @@
 
   :custom-face
   (tabbar-default
-   ((t (:inherit variable-pitch :background "gray20" :foreground "gray20" :height 0.95
+   ((t (:inherit variable-pitch :background "gray20" :foreground "gray20" :height 1.1
                  :box '(:line-width 5 :color "gray20" :style nil)))))
 
   (tabbar-unselected
@@ -23,10 +23,10 @@
                  :box '(:line-width 5 :color "gray30" :style released-button)))))
 
   (tabbar-selected
-   ((t (:inherit tabbar-default :background "gray85" :foreground "black" :height 1.05
+   ((t (:inherit tabbar-default :background "gray85" :foreground "black" :height 1.15
                  :box '(:line-width 5 :color "gray85" :style pressed-button)))))
   (tabbar-selected-modified
-   ((t (:inherit tabbar-default :background "gray85" :foreground "red" :height 1.05
+   ((t (:inherit tabbar-default :background "gray85" :foreground "red" :height 1.15
                  :box '(:line-width 5 :color "gray85" :style pressed-button)))))
 
   (tabbar-highlight
@@ -39,6 +39,10 @@
 
   (tabbar-separator ((t (:height 0.6 :background "gray20"))))
 
+  :hook
+  (after-save . my-tabbar-modification-state-change)
+  (first-change . my-tabbar-on-buffer-modification)
+
   :init
   (tabbar-mode))
 
@@ -49,6 +53,15 @@
           (b (current-buffer)))
       (kill-buffer (tabbar-tab-value (get-text-property (cdr target) 'tabbar-tab (car target))))
       (switch-to-buffer b))))
+
+;; Called each time the modification state of the buffer changed.
+(defun my-tabbar-modification-state-change ()
+  (tabbar-set-template tabbar-current-tabset nil)
+  (tabbar-display-update))
+    ;; First-change-hook is called BEFORE the change is made.
+(defun my-tabbar-on-buffer-modification ()
+  (set-buffer-modified-p t)
+  (my-tabbar-modification-state-change))
 
 (defun my-tabbar-buffer-groups ()
   (list (cond

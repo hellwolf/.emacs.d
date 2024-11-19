@@ -17,9 +17,11 @@
   :pin manual
   :diminish ""
   :config
+  (define-key lsp-mode-map (kbd "C-s-l") lsp-command-map)
   (add-hook 'lsp-configure-hook
     (lambda ()
-      (lsp-headerline-breadcrumb-mode -1))))
+      ;;(lsp-headerline-breadcrumb-mode -1)
+      )))
 
 ;; make white space visible
 (defface extra-whitespace-face

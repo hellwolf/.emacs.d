@@ -40,8 +40,8 @@
   (tabbar-separator ((t (:height 0.6 :background "gray20"))))
 
   :hook
-  (after-save . my-tabbar-modification-state-change)
-  (first-change . my-tabbar-on-buffer-modification)
+  ((after-save . my-tabbar-modification-state-change)
+   (first-change . my-tabbar-on-buffer-modification))
 
   :init
   (tabbar-mode))

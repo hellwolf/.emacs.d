@@ -20,7 +20,8 @@
   (define-key lsp-mode-map (kbd "C-s-l") lsp-command-map)
   (add-hook 'lsp-configure-hook
     (lambda ()
-      ;;(lsp-headerline-breadcrumb-mode -1)
+      ;; this is in conflict with the
+      (lsp-headerline-breadcrumb-mode -1)
       )))
 
 ;; make white space visible

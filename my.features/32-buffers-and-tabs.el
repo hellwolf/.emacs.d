@@ -41,7 +41,8 @@
 
   :hook
   ((after-save . my-tabbar-modification-state-change)
-   (first-change . my-tabbar-on-buffer-modification))
+   (first-change . my-tabbar-on-buffer-modification)
+  )
 
   :init
   (tabbar-mode))
@@ -58,9 +59,9 @@
 (defun my-tabbar-modification-state-change ()
   (tabbar-set-template tabbar-current-tabset nil)
   (tabbar-display-update))
-    ;; First-change-hook is called BEFORE the change is made.
+
+;; First-change-hook is called BEFORE the change is made.
 (defun my-tabbar-on-buffer-modification ()
-  (set-buffer-modified-p t)
   (my-tabbar-modification-state-change))
 
 (defun my-tabbar-buffer-groups ()

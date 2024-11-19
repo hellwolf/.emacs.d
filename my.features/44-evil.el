@@ -20,10 +20,10 @@
   (evil-symbol-word-search t)
   :config
   ;; Remap to emacs movement keybindings in normal mode
-  (define-key evil-normal-state-map (kbd "C-a") 'move-beginning-of-line)
-  (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
-  (define-key evil-normal-state-map (kbd "C-p") 'previous-line)
-  (define-key evil-normal-state-map (kbd "C-n") 'next-line)
+  ;; (define-key evil-normal-state-map (kbd "C-a") 'move-beginning-of-line)
+  ;; (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+  ;; (define-key evil-normal-state-map (kbd "C-p") 'previous-line)
+  ;; (define-key evil-normal-state-map (kbd "C-n") 'next-line)
   :init
   (evil-mode))
 

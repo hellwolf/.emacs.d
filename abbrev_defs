@@ -3,6 +3,9 @@
 ;; The creation of this table is assisted by ChatGPT4:
 ;; https://chat.openai.com/share/441c339e-1032-463d-afcb-9ca65f38d5e8
 
+;; refs:
+;; - https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+;; - https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode
 (defconst math-abbrevs-table
   '(;; binary operators
     ("xxpm"            "±")
@@ -112,9 +115,19 @@
     ("xxmathfrakX" "𝔛")
     ("xxmathfrakY" "𝔜")
     ("xxmathfrakZ" "ℨ")
-    ;; /misc
-    ("xxmultimap" "⊸")
-    ("xxforall"   "∀")
+    ;; arrows:
+    ;; - https://latextutorials.com/symbols/arrows/
+    ;; - https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode
+    ("xxmultimap"  "⊸")
+    ("⤳"   "↝") ;; ↝(U+219D) vs. ⤳(U+2933)
+    ("xxRightarrow "⇒")
+    ("xxLeftarrow  "⇐")
+    ;; misc
+    ("xxsim"     "∼")
+    ("xxapprox"  "≈")
+    ("xxsimeq"   "≃")
+    ("xxcong"    "≅")
+    ("xxforall"  "∀")
     ("xxbsquare" "■")
     ("xxsquare"  "□")
     ("xx[[" "⟦")

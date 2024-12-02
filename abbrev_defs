@@ -34,7 +34,7 @@
     ("xxcirc"          "∘")
     ("xxdagger"        "†")
     ("xxwedge"         "∧")
-    ("xxbullet"        "∙")
+    "latexxlaxbullet"        "∙")
     ("xxsetminus"      "∖")
     ("xxddagger"       "‡")
     ("xxcdot"          "⋅")
@@ -123,6 +123,7 @@
     ("xxRightarrow "⇒")
     ("xxLeftarrow  "⇐")
     ;; misc
+    ("xxequiv"   "≡")
     ("xxsim"     "∼")
     ("xxapprox"  "≈")
     ("xxsimeq"   "≃")

@@ -34,7 +34,7 @@
     ("xxcirc"          "∘")
     ("xxdagger"        "†")
     ("xxwedge"         "∧")
-    "latexxlaxbullet"        "∙")
+    ("latexxlaxbullet" "∙")
     ("xxsetminus"      "∖")
     ("xxddagger"       "‡")
     ("xxcdot"          "⋅")
@@ -119,9 +119,12 @@
     ;; - https://latextutorials.com/symbols/arrows/
     ;; - https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode
     ("xxmultimap"  "⊸")
-    ("⤳"   "↝") ;; ↝(U+219D) vs. ⤳(U+2933)
+    ("xxleadsto"   "↝") ;; ↝ (U+219D) vs. ⤳ (U+2933)
     ("xxRightarrow "⇒")
     ("xxLeftarrow  "⇐")
+    ;; brackets
+    ("xx[[" "⟦")
+    ("xx]]" "⟧")
     ;; misc
     ("xxequiv"   "≡")
     ("xxsim"     "∼")
@@ -131,9 +134,7 @@
     ("xxforall"  "∀")
     ("xxbsquare" "■")
     ("xxsquare"  "□")
-    ("xx[[" "⟦")
-    ("xx]]" "⟧")
-    ))
+))
 
 (defconst greek-abbrevs-table
   '(("xxalpha"   "α")

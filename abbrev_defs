@@ -188,8 +188,10 @@
 
 
 (defconst emoji-abbrevs-table
-  '(("xxwip"          "🚧")
-    ("xxwarning"      "⚠")
+  '(("xxgreencheck"   "✅")
+    ("xxredquestion"  "❓")
+    ("xxwip"          "🚧")
+    ("xxwarning"      "⚠️")
     ("xxnoentry"      "⛔")
     ("xxgreencircle"  "🟢")
     ("xxorangecircle" "🟠")

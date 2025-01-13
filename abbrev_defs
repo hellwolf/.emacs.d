@@ -192,6 +192,8 @@
     ("xxredquestion"  "❓")
     ("xxwip"          "🚧")
     ("xxwarning"      "⚠️")
+    ("xxstar"         "⭐")
+    ("xxglowingstar"  "🌟")
     ("xxnoentry"      "⛔")
     ("xxgreencircle"  "🟢")
     ("xxorangecircle" "🟠")

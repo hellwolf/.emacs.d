@@ -1,4 +1,5 @@
 (require 'browse-url)
+(require 'evil-core)
 (require 'my-lib)
 
 

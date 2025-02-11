@@ -8,7 +8,7 @@
   (rcirc-fill-column 100)
   (rcirc-omit-responses '("JOIN" "PART" "QUIT" "NICK" "AWAY"))
   (rcirc-omit-unless-requested '("NAMES"))
-  :hook (rcirc-mode . my-rcirc-mode-hook)
+  :hook (rcirc-mode . #'my-rcirc-mode-hook)
 )
 
 (defun my-rcirc-mode-hook ()

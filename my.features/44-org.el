@@ -88,6 +88,6 @@
 ;; NOTE:
 ;; - reference: https://github.com/eschulte/epresent/blob/master/present.org?plain=1
 ;; - sub-level support: EPRESENT_FRAME_LEVEL
-(use-package epresent)
+(use-package epresent :pin manual)
 
 (push (make-my-lang-mode :to-hook 'org-mode-hook) my-text-lang-modes)

@@ -1,6 +1,6 @@
 (require 'rcirc)
 
-(use-package rcirc
+(use-package rcirc ;; no-nixpkgs
   :pin manual
   :custom
   (rcirc-reconnect-delay 60)

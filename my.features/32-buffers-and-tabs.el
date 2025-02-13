@@ -6,6 +6,7 @@
 ;; - customize the look: https://gist.github.com/3demax/1264635
 
 (use-package tabbar
+  :pin manual
   :custom
   (tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
   (tabbar-separator (quote (0.5)))

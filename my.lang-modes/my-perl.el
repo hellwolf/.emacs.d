@@ -1,7 +1,7 @@
 (require 'cperl-mode)
 (require 'my-lib)
 
-(use-package cperl-mode :pin manual
+(use-package cperl-mode ;; built-in
   :mode
   (;; perl xs file
    ("\\.xs$" . c-mode)

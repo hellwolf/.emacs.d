@@ -6,6 +6,7 @@
 ;; https://emacs.stackexchange.com/questions/3374/set-the-background-of-org-exported-code-blocks-according-to-theme
 ;; http://fly.srk.fer.hr/~hniksic/emacs/htmlize.el
 (use-package htmlize
+  :pin manual
   :config
   (setq htmlize-output-type "css-line")
   )

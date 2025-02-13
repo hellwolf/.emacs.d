@@ -10,6 +10,7 @@
 ;; with newer version: (evil-ex-execute "!solc --via-ir --ir %"))
 
 (use-package solidity-mode
+  :pin manual
   :bind (:map
          solidity-mode-map ("C-c C-l" . #'solidity-load-buffer)))
 

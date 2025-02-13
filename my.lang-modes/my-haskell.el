@@ -49,7 +49,8 @@
   (custom-set-variables
    '(haskell-font-lock-symbols-alist '(("\\" . "λ")))))
 
-(use-package lsp-haskell)
+(use-package lsp-haskell
+  :pin manual)
 
 (push (make-my-lang-mode
        :to-hook        'haskell-mode-hook

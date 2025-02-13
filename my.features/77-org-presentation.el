@@ -4,6 +4,7 @@
 ;; org-reveal
 ;; repo: https://github.com/yjwen/org-reveal
 (use-package ox-reveal
+  :pin manual
   :after (org htmlize)
   :custom
   ;;(org-reveal-root (my-catfile (getenv "HOME") "Applications" "reveal.js"))

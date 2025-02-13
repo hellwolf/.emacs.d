@@ -1,3 +1,4 @@
 (require 'use-package)
 
-(use-package magit)
+(use-package magit
+  :pin manual)

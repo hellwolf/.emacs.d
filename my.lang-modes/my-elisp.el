@@ -8,7 +8,8 @@
   (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc))
 
 ;; Include this package reference for build process.
-(use-package elisp-lint)
+(use-package elisp-lint
+  :pin manual)
 
 (push (make-my-lang-mode
        :to-hook        'emacs-lisp-mode-hook

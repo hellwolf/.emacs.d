@@ -2,6 +2,7 @@
 (require 'evil-core nil t)
 
 (use-package evil
+  :pin manual
   :custom
   ;; undo behaviour
   (evil-undo-system 'undo-tree)
@@ -29,5 +30,5 @@
 
 ;; https://github.com/doomemacs/doomemacs/issues/1994
 (use-package evil-terminal-cursor-changer
-  :hook
-  (tty-setup . evil-terminal-cursor-changer-activate))
+  :pin manual
+  :hook ((tty-setup . evil-terminal-cursor-changer-activate)))

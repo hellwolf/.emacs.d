@@ -2,6 +2,7 @@
 (require 'my-lib)
 
 (use-package nix-mode
+  :pin manual
   :hook ((nix-mode . (lambda ()
                        (add-hook 'before-save-hook #'nix-format-before-save)
                        (setq fill-column 100)

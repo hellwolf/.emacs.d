@@ -80,6 +80,7 @@
 
 ;; A utility package to collect various Icon Fonts and propertize them within Emacs
 (use-package all-the-icons
+  :pin manual
   :if (display-graphic-p))
 
 ;; set paren mode
@@ -91,7 +92,8 @@
 (global-font-lock-mode t)
 
 ;; highlight-symbol.el
-(use-package highlight-symbol)
+(use-package highlight-symbol
+  :pin manual)
 
 ;; reload file on changes
 ;; https://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk
@@ -119,7 +121,8 @@
 ;; Handy mode to make the modeline more succinct by allowing a diminished mode line string. Sometimes the fact that mode
 ;; is there is fine and it doesn't need to be on the mode line (diminish it to ""). Putting diminish first not out of
 ;; importance, but because it is used later on.
-(use-package diminish)
+(use-package diminish
+  :pin manual)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key Bindings

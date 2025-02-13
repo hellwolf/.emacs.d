@@ -30,6 +30,7 @@
 
 ;; flycheck
 (use-package flycheck
+  :pin manual
   :diminish ""
   :custom
   (flycheck-emacs-lisp-load-path 'inherit)
@@ -38,6 +39,7 @@
 
 ;; undo-tree
 (use-package undo-tree
+  :pin manual
   :diminish ""
   :custom
   (undo-tree-history-directory-alist `(("." . ,(my-catfile user-emacs-directory "undo-tree"))))
@@ -47,7 +49,8 @@
     (lambda () (define-key undo-tree-map (kbd "C-/") nil))))
 
 ;; wgrep
-(use-package wgrep)
+(use-package wgrep
+  :pin manual)
 
 ;; abbrev-mode on by default
 (setq-default abbrev-mode t)

@@ -2,7 +2,8 @@
 
 ;; https://github.com/joodland/bm
 ;; Visible bookmarks in buffer for GNU Emacs 26.x, 27.x
-(use-package bm)
+(use-package bm
+  :pin manual)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key Bindings (F2)

@@ -1,6 +1,7 @@
 (require 'my-lib)
 
 (use-package plantuml-mode
+  :pin manual
   :custom
   ;; search plantuml jar path in the nix environment.
   (plantuml-jar-path (shell-command-to-string

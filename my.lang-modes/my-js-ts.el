@@ -16,7 +16,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package js2-mode
-  ;;
+  :pin manual
   :mode (("\\.js\\'"   . js2-mode)
          ("\\.jsx?\\'" . js2-jsx-mode))
   :interpreter ("node" . js2-mode))
@@ -36,9 +36,11 @@
 ;; Typescript Mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode babel extension for typescript
-(use-package ob-typescript)
+(use-package ob-typescript
+  :pin manual)
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :pin manual)
 
 (push (make-my-lang-mode
         :to-hook        'typescript-mode-hook

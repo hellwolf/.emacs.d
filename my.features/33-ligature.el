@@ -3,6 +3,7 @@
 
 ;;  - https://github.com/mickeynp/ligature.el/wiki
 (use-package ligature
+  :pin manual
   :config
   ;; Enable all Cascadia and Fira Code ligatures in programming modes
   (ligature-set-ligatures 'prog-mode

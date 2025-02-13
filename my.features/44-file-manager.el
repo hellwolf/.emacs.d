@@ -3,20 +3,22 @@
 (require 'treemacs nil t)
 (require 'treemacs-evil nil t)
 (require 'fzf nil t)
-
-;; treemacs
-(use-package treemacs)
-
-;; treemacs-evil
-(use-package treemacs-evil
-  :after (treemacs evil))
-
 ;; a bit more retro flavor
 (require 'dired-x)
 
+;; treemacs
+(use-package treemacs
+  :pin manual)
+
+;; treemacs-evil
+(use-package treemacs-evil
+  :pin manual
+  :after (treemacs evil))
+
 ;; https://github.com/bling/fzf.el
 ;; An Emacs front-end for fzf.
-(use-package fzf)
+(use-package fzf
+  :pin manual)
 
 (defun emacs-project-fzf-find-file ()
   (interactive)

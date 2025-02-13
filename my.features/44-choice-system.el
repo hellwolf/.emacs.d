@@ -13,10 +13,12 @@
 ;; keystrokes and the functions to which they are bound (or a prefix). Many times I've found unknown features by simply
 ;; looking at the various options. This is, IMO, a great way to learn Emacs key-bindings.
 (use-package which-key
+  :pin manual
   :diminish ""
   :init
   (which-key-mode t))
 (use-package which-key-posframe
+  :pin manual
   :init
   (which-key-posframe-mode t)
   :custom

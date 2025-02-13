@@ -1,7 +1,8 @@
 (require 'use-package)
 ;; TODO cleanup
 
-(use-package browse-kill-ring)
+(use-package browse-kill-ring
+  :pin manual)
 
 ;; browse-kill-ring - 1.3
 ;; url: http://www.todesschaf.org/projects/bkr.html

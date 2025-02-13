@@ -5,6 +5,7 @@
 
 ;; editorconfig
 (use-package editorconfig
+  :pin manual
   :diminish)
 
 (defun open-emacs-project (pdir)

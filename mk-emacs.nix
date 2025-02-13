@@ -3,6 +3,7 @@
 pkgs: emacsVariant: pkgs.buildEnv {
   name = "hw-emacs";
   paths = [((pkgs.emacsPackagesFor emacsVariant).emacsWithPackages (epkgs: with epkgs; [
+agda2-mode
 all-the-icons
 bm
 browse-kill-ring
@@ -11,10 +12,12 @@ company
 diminish
 editorconfig
 elisp-lint
+epresent
 evil
 evil-org
 evil-terminal-cursor-changer
 flycheck
+flycheck-grammarly
 fzf
 gnuplot
 haskell-mode

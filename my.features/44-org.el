@@ -3,6 +3,7 @@
 (require 'my-lib)
 
 (use-package org
+  :pin manual
   :hook
   (org-mode . org-indent-mode)
   :custom
@@ -29,6 +30,7 @@
 ;; Beautify Org
 ;; https://github.com/zzamboni/dot-emacs/blob/master/init.org#beautifying-org-mode
 (use-package org-bullets
+  :pin manual
   :after (org)
   :custom
   (prettify-symbols-unprettify-at-point 'right-edge)
@@ -81,6 +83,7 @@
 
 ;; evil-org
 (use-package evil-org
+  :pin manual
   :after (org)
   :hook (org-mode . evil-org-mode))
 
@@ -88,6 +91,7 @@
 ;; NOTE:
 ;; - reference: https://github.com/eschulte/epresent/blob/master/present.org?plain=1
 ;; - sub-level support: EPRESENT_FRAME_LEVEL
-(use-package epresent :pin manual)
+(use-package epresent
+  :pin manual)
 
 (push (make-my-lang-mode :to-hook 'org-mode-hook) my-text-lang-modes)

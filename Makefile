@@ -16,8 +16,7 @@ test: $(MK_EMACS_OUTPUT)
 	    let pkgs = import <nixpkgs> {}; \
 	        mk-emacs = import ./"$(MK_EMACS_OUTPUT)" pkgs; \
 	    in { \
-	        emacs28-gtk3 = mk-emacs pkgs.emacs28-gtk3; \
-	        emacs29-gtk3 = mk-emacs pkgs.emacs29-gtk3; \
+	        emacs30-gtk3 = mk-emacs pkgs.emacs30-gtk3; \
 	    } \
 		"
 

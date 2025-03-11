@@ -13,30 +13,23 @@
 
   :custom-face
   (tabbar-default
-   ((t (:inherit variable-pitch :background "gray20" :foreground "gray20" :height 1.1
-                 :box '(:line-width 5 :color "gray20" :style nil)))))
+   ((t (:inherit variable-pitch :background "gray20" :foreground "gray20" :height 1.1))))
 
   (tabbar-unselected
-   ((t (:inherit tabbar-default :background "gray30" :foreground "white"
-                 :box '(:line-width 5 :color "gray30" :style released-button)))))
+   ((t (:inherit tabbar-default :background "gray30" :foreground "white"))))
   (tabbar-modified
-   ((t (:inherit tabbar-default :background "gray30" :foreground "green"
-                 :box '(:line-width 5 :color "gray30" :style released-button)))))
+   ((t (:inherit tabbar-default :background "gray30" :foreground "green"))))
 
   (tabbar-selected
-   ((t (:inherit tabbar-default :background "gray85" :foreground "black" :height 1.15
-                 :box '(:line-width 5 :color "gray85" :style pressed-button)))))
+   ((t (:inherit tabbar-default :background "gray85" :foreground "black" :height 1.15))))
   (tabbar-selected-modified
-   ((t (:inherit tabbar-default :background "gray85" :foreground "red" :height 1.15
-                 :box '(:line-width 5 :color "gray85" :style pressed-button)))))
+   ((t (:inherit tabbar-default :background "gray85" :foreground "red" :height 1.15))))
 
   (tabbar-highlight
-   ((t (:inherit tabbar-default :background "white" :foreground "black" :underline t
-                 :box '(:line-width 5 :color "white" :style nil)))))
+   ((t (:inherit tabbar-default :background "white" :foreground "black" :underline t))))
 
   (tabbar-button
-   ((t (:inherit tabbar-default
-                 :box '(:line-width 1 :color "gray20" :style released-button)))))
+   ((t (:inherit tabbar-default))))
 
   (tabbar-separator ((t (:height 0.6 :background "gray20"))))
 

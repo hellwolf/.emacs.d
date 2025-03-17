@@ -22,28 +22,40 @@
 
 ;; fonts
 (defun use-my-face-attributes (&optional frame)
-  (let ((ff-def "Fira Code")
-        (ff-alt "Liberation Mono")
+  (let ((ff-def "Cascadia Code")
+        (ff-math "Noto Sans Math")
+        (ff-alt "FreeMono")
         (ff-color-emoji "Noto Color Emoji"))
     (set-face-attribute 'default nil :family ff-def)
-    (set-face-attribute 'italic  nil :family ff-alt :slant 'italic)
-    ;; https://en.wikipedia.org/wiki/Box_Drawing
-    ;; https://en.wikipedia.org/wiki/Block_Elements
-    ;; https://en.wikipedia.org/wiki/Geometric_Shapes_(Unicode_block)
-    (set-fontset-font t '(#x002500  .#x0025ff) ff-alt)
-    ;; https://en.wikipedia.org/wiki/Miscellaneous_Symbols
-    (set-fontset-font t '(#x002600 . #x0026ff) ff-color-emoji)
-    ;; https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)
-    (set-fontset-font t '(#x01f000 . #x01f64f) ff-color-emoji)
-    ;; See https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
-    ;; Math symbols to use the alternative mono font
-    (set-fontset-font t '(#x002200 . #x0022ff) ff-alt)
-    ;; https://en.wikipedia.org/wiki/Supplemental_Mathematical_Operators
-    (set-fontset-font t '(#x002a00 . #x002aff) ff-alt)
-    ;; https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-A
-    (set-fontset-font t '(#x0027C0 . #x0027ef) ff-alt)
-    ;; https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-B
-    (set-fontset-font t '(#x002980 . #x0029ff) ff-alt)))
+    (set-face-attribute 'italic  nil :family ff-def :slant 'italic)
+
+    ;; mapping unicode to font families
+    ;; See - https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
+    ;;     - https://en.wikipedia.org/wiki/Unicode_block
+    ;; * Mathematical Symbols
+    ;;   - https://en.wikipedia.org/wiki/Mathematical_Operators_(Unicode_block)
+    (set-fontset-font t '(#x2200 . #x22FF) ff-math)
+    ;;   - https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-A
+    (set-fontset-font t '(#x27C0 . #x27ef) ff-math)
+    ;;   - https://en.wikipedia.org/wiki/Miscellaneous_Mathematical_Symbols-B
+    (set-fontset-font t '(#x2980 . #x29ff) ff-math)
+    ;;   - https://en.wikipedia.org/wiki/Supplemental_Mathematical_Operators
+    (set-fontset-font t '(#x2A00 . #x2Aff) ff-math)
+    ;;   - https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols
+    (set-fontset-font t '(#x1d400 . #x1d7ff) ff-math)
+    ;; *  Misc Symbols
+    ;;   - https://en.wikipedia.org/wiki/Box_Drawing
+    ;;   - https://en.wikipedia.org/wiki/Block_Elements
+    ;;   - https://en.wikipedia.org/wiki/Geometric_Shapes_(Unicode_block)
+    (set-fontset-font t '(#x2500  .#x25ff) ff-alt)
+    ;;   - https://en.wikipedia.org/wiki/Supplemental_Mathematical_Operators
+    (set-fontset-font t '(#x2a00 . #x2aff) ff-alt)
+    ;; * Emoji
+    ;;   - https://en.wikipedia.org/wiki/Miscellaneous_Symbols
+    (set-fontset-font t '(#x2600 . #x26ff) ff-color-emoji)
+    ;;   - https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)
+    (set-fontset-font t '(#x1f000 . #x1f64f) ff-color-emoji)
+  ))
 
 ;; default frame title
 (setq frame-title-format "%f (%b)") ;; TODO is the file changed?

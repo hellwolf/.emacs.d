@@ -23,7 +23,7 @@
 ;; fonts
 (defun use-my-face-attributes (&optional frame)
   (let ((ff-def "Cascadia Code")
-        (ff-math "Noto Sans Math")
+        (ff-math "Noto Sans Mono")
         (ff-alt "FreeMono")
         (ff-color-emoji "Noto Color Emoji"))
     (set-face-attribute 'default nil :family ff-def)

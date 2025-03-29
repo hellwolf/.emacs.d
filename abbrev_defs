@@ -41,16 +41,8 @@
     ("xxwr"            "≀")
     ("xxamalg"         "⨿")
     ;; set and/or logic notations
+    ("xxneg"          "¬")
     ("xxemptyset"     "∅")
-    ("xxN"            "ℕ")
-    ("xxZ"            "ℤ")
-    ("xxQ"            "ℚ")
-    ("xxA"            "𝔸")
-    ("xxR"            "ℝ")
-    ("xxC"            "ℂ")
-    ("xxH"            "ℍ")
-    ("xxO"            "𝕆")
-    ("xxS"            "𝕊")
     ("xxin"           "∈")
     ("xxnotin"        "∉")
     ("xxowns"         "∋")
@@ -61,6 +53,16 @@
     ("xxunion"        "∪")
     ("xxintersection" "∩")
     ("xxsetminus"     "∖")
+    ;; amsmath/blackbold: \bbold
+    ("xxbboldA" "𝔸")
+    ("xxbboldC" "ℂ")
+    ("xxbboldN" "ℕ")
+    ("xxbboldQ" "ℚ")
+    ("xxbboldR" "ℝ")
+    ("xxbboldH" "ℍ")
+    ("xxbboldO" "𝕆")
+    ("xxbboldS" "𝕊")
+    ("xxbboldZ" "ℤ")
     ;; Calligraphy: \mathcal
     ("xxmathcalA" "𝒜")
     ("xxmathcalB" "ℬ")
@@ -91,13 +93,13 @@
     ;; Fraktur: \mathfrak
     ("xxmathfrakA" "𝔄")
     ("xxmathfrakB" "𝔅")
-    ("xxmathfrakC" "𝔆")
+    ("xxmathfrakC" "ℭ")
     ("xxmathfrakD" "𝔇")
     ("xxmathfrakE" "𝔈")
     ("xxmathfrakF" "𝔉")
     ("xxmathfrakG" "𝔊")
-    ("xxmathfrakH" "𝔋")
-    ("xxmathfrakI" "𝔌")
+    ("xxmathfrakH" "ℌ")
+    ("xxmathfrakI" "ℑ")
     ("xxmathfrakJ" "𝔍")
     ("xxmathfrakK" "𝔎")
     ("xxmathfrakL" "𝔏")
@@ -106,7 +108,7 @@
     ("xxmathfrakO" "𝔒")
     ("xxmathfrakP" "𝔓")
     ("xxmathfrakQ" "𝔔")
-    ("xxmathfrakR" "𝔕")
+    ("xxmathfrakR" "ℜ")
     ("xxmathfrakS" "𝔖")
     ("xxmathfrakT" "𝔗")
     ("xxmathfrakU" "𝔘")
@@ -200,6 +202,8 @@
     ("xxredcircle"    "🔴")
     ("xxshrug"        "¯\_(ツ)_/¯")))
 
-(define-abbrev-table 'global-abbrev-table
-  (append math-abbrevs-table greek-abbrevs-table
+(define-abbrev-table
+  'global-abbrev-table
+  (append math-abbrevs-table
+          greek-abbrevs-table
           emoji-abbrevs-table))

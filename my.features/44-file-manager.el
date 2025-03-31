@@ -13,6 +13,7 @@
 ;; treemacs-evil
 (use-package treemacs-evil
   :pin manual
+  :custom (treemacs-follow-mode nil)
   :after (treemacs evil))
 
 ;; https://github.com/bling/fzf.el

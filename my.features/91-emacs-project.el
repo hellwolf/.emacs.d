@@ -18,11 +18,11 @@
     (message (concat "Opening emacs-project: " emacs-project-root-directory))
     ;; use editorconfig
     (editorconfig-mode 1)
-    ;; desktop session integration
-    (desktop-read data-dir)
     ;; load .emacs-project.el
     (if (file-readable-p project-el-file) (load project-el-file))
     (if (file-readable-p project-el-file2) (load project-el-file2))
+    ;; desktop session integration
+    (desktop-read data-dir)
     ;; other hooks
     (add-hook 'kill-emacs-hook
       `(lambda () (ignore-errors (desktop-save ,data-dir t))))))

@@ -29,7 +29,8 @@
   (haskell-stylish-on-save t)
   (haskell-font-lock-symbols t)
   ;; https://github.com/haskell/haskell-language-server/discussions/3105
-  (lsp-lens-place-position 'above-line)
+  ;;(lsp-lens-place-position 'above-line)
+  (lsp-haskell-plugin-class-global-on nil)
   (lsp-haskell-session-loading "multipleComponents")
   ;; (haskell-font-lock-symbols t)
   :hook ((haskell-mode . my-haskell-mode-init)

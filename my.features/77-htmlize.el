@@ -8,7 +8,7 @@
 (use-package htmlize
   :pin manual
   :config
-  (setq htmlize-output-type "css-line")
+  (setq htmlize-output-type 'inline-css)
   )
 
 (defun my/org-inline-css-hook (exporter)

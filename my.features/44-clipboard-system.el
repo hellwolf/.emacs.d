@@ -1,22 +1,11 @@
 ;;; -*- lexical-binding: t -*-
 (require 'use-package)
-;; TODO cleanup
 
 (use-package browse-kill-ring
   :pin manual)
 
-;; browse-kill-ring - 1.3
-;; url: http://www.todesschaf.org/projects/bkr.html
-(require 'browse-kill-ring)
-(require 'browse-kill-ring+)
-
 ;; clipboard tweaks
-(setq select-enable-clipboard 't)
+; Non-nil means cutting and pasting uses the clipboard.
+(setq select-enable-clipboard t)
+; If non-nil, copy to kill ring upon mouse adjustments of the region.
 (setq mouse-drag-copy-region nil)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; keybindings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; browse-kill-rings, M-y
-(browse-kill-ring-default-keybindings)

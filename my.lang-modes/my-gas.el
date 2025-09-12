@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'gas-mode)
 (require 'my-lib)
 

@@ -1,6 +1,7 @@
+;;; -*- lexical-binding: t -*-
 (require 'my-lib)
-
-(defvar agda2-directory) ;; to be redefined in "agda2.el"
+(require 'agda2 nil t)
+(require 'agda2-mode nil t)
 
 ;; load agda-mode
 (let ((agda2-el (shell-command-to-string "which agda-mode &>/dev/null && agda-mode locate")))

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'lisp-mode)
 (require 'my-lib)
 (require 'flycheck)

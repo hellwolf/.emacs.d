@@ -1,7 +1,10 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
 (require 'evil nil t)
 (require 'lsp-headerline nil t)
 (require 'flycheck nil t)
+(require 'highlight-symbol nil t)
+(require 'diminish)
 (require 'my-lib)
 
 ;;; Adding features to programming and text modes.

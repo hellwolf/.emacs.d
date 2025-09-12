@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'my-lib)
 
 (push (make-my-lang-mode

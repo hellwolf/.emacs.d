@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'compile)
 
 (add-hook 'compilation-mode-hook

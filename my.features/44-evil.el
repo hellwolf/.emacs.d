@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
 (require 'evil-core nil t)
 

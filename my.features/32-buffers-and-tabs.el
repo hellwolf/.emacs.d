@@ -1,5 +1,45 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
 (require 'tabbar nil t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Buffer
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; blink-cursor-mode
+(blink-cursor-mode t)
+
+;; color highlighting
+(global-font-lock-mode t)
+
+;; set paren mode
+(require 'paren)
+(show-paren-mode t)
+(setq show-paren-style 'mixed)
+
+;; highlight-symbol.el
+(use-package highlight-symbol
+  :pin manual)
+
+;; reload file on changes
+;; https://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk
+(global-auto-revert-mode t)
+
+;; truncate lines automatically
+(set-default 'truncate-lines t)
+(setq-default show-trailing-whitespace t)
+
+;; display full column indicator (emacs 27+)
+(if (fboundp 'global-display-fill-column-indicator-mode)
+  (global-display-fill-column-indicator-mode))
+
+;; mark tweaks
+(transient-mark-mode t)
+(setq mark-even-if-inactive t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Tabs
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Reference:
 ;; - https://www.emacswiki.org/emacs/TabBarMode

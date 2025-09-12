@@ -1,4 +1,6 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
+(require 'which-key-posframe nil t)
 (require 'ido)
 
 ;; using built-in ido

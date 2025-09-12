@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'term)
 (require 'use-package)
 (require 'vterm nil t)

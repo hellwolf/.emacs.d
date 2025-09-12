@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
 (require 'editorconfig nil t)
 (require 'my-lib)

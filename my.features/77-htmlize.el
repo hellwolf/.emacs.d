@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
 (require 'htmlize nil t)
 (require 'ox-html nil t)

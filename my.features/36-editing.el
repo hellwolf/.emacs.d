@@ -1,5 +1,9 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
 (require 'etags nil t)
+(require 'diminish nil t)
+(require 'flycheck nil t)
+(require 'undo-tree nil t)
 (require 'my-lib)
 
 ;; tab width

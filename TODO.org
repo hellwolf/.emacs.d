@@ -8,5 +8,7 @@
 - [ ] magit setup
 * Framework
 - [ ] Side Window Manager
+* Code Quality
+- [x] Use ~;;; -*- lexical-binding: t -*-~
 * Misc
 - [-] Nix integration for package-archives

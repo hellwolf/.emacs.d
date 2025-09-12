@@ -1,4 +1,12 @@
+;;; -*- lexical-binding: t -*-
 (require 'rcirc)
+
+(defun my-rcirc-mode-hook ()
+  (setq truncate-lines nil)
+  (flyspell-mode)
+  (rcirc-omit-mode nil)
+  (rcirc-track-minor-mode t)
+)
 
 (use-package rcirc ;; no-nixpkgs
   :pin manual
@@ -9,11 +17,4 @@
   (rcirc-omit-responses '("JOIN" "PART" "QUIT" "NICK" "AWAY"))
   (rcirc-omit-unless-requested '("NAMES"))
   :hook ((rcirc-mode . my-rcirc-mode-hook))
-)
-
-(defun my-rcirc-mode-hook ()
-  (setq truncate-lines nil)
-  (flyspell-mode)
-  (rcirc-omit-mode nil)
-  (rcirc-track-minor-mode t)
 )

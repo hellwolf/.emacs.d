@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'cl-lib)
 (require 'my-lib)
 
@@ -59,7 +60,7 @@
   (kill-new buffer-file-name))
 
 ;; show & copy file to kill-ring
-(defun my-copy-file-to-kill-ring (&optional filename)
+(defun my-copy-file-to-kill-ring (&optional _)
   "Copy entire buffer to clipboard"
   (interactive)
   (clipboard-kill-ring-save (point-min) (point-max)))
@@ -98,12 +99,13 @@ how-can-i-quickly-toggle-between-a-file-and-a-scratch-buffer-having-the-same-m
                        (t  nil)))
             (buf (get-buffer-create (concat "*scratch" (if mode-str "-") mode-str "*"))))
       (pop-to-buffer buf) ; vs. (switch-to-buffer buf)
-      (if (stringp mode-str) (funcall (intern mode-str)))   ; http://stackoverflow.com/a/7539787/1219634
+      ;; switch mode: http://stackoverflow.com/a/7539787/1219634
+      (if (stringp mode-str) (funcall (intern mode-str)))
       buf)))
 
-(defun scratch-in-same-mode  (interactive) (switch-to-scratch-and-back -1))
-(defun scratch-in-org-mode   (interactive) (switch-to-scratch-and-back 4))
-(defun scratch-in-elisp-mode (interactive) (switch-to-scratch-and-back 16))
+(defun scratch-in-same-mode  () (interactive) (switch-to-scratch-and-back -1))
+(defun scratch-in-org-mode   () (interactive) (switch-to-scratch-and-back 4))
+(defun scratch-in-elisp-mode () (interactive) (switch-to-scratch-and-back 16))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key Bindings (C-c-, F12)

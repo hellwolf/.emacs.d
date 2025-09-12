@@ -1,7 +1,8 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Frame
+;; Theme, Fonts and Faces
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; theme
@@ -16,16 +17,17 @@
   :init
   (load-theme 'zenburn t))
 
-(custom-set-faces
-  ;; '(term-color-blue ((t (:inherit default :background "royal blue" :foreground "royal blue"))))
-  '(line-number-current-line ((t (:inherit default :foreground "orange")))))
+;; A utility package to collect various Icon Fonts and propertize them within Emacs
+(use-package all-the-icons
+  :pin manual
+  :if (display-graphic-p))
 
 ;; fonts
-(defun use-my-face-attributes (&optional frame)
+(defun use-my-face-attributes (&optional _)
   (let ((ff-def "Cascadia Code")
-        (ff-math "Noto Sans Mono")
-        (ff-alt "FreeMono")
-        (ff-color-emoji "Noto Color Emoji"))
+         (ff-math "Noto Sans Mono")
+         (ff-alt "FreeMono")
+         (ff-color-emoji "Noto Color Emoji"))
     (set-face-attribute 'default nil :family ff-def)
     (set-face-attribute 'italic  nil :family ff-def :slant 'italic)
 
@@ -57,6 +59,15 @@
     (set-fontset-font t '(#x1f000 . #x1f64f) ff-color-emoji)
   ))
 
+;; custom faces
+(custom-set-faces
+  ;; '(term-color-blue ((t (:inherit default :background "royal blue" :foreground "royal blue"))))
+  '(line-number-current-line ((t (:inherit default :foreground "orange")))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Frame
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; default frame title
 (setq frame-title-format "%f (%b)") ;; TODO is the file changed?
 
@@ -75,53 +86,13 @@
   (set-frame-parameter frame 'menu-bar-lines (if (display-graphic-p frame) 1 0)))
 (add-hook 'after-make-frame-functions 'contextual-menubar)
 
-;; setup hooks
+;; setup frame hooks
 (defun my-frame-setup-hook (&optional frame)
   (when window-system
     (use-my-face-attributes frame)
     (set-frame-size frame 130 40)))
 (add-hook 'window-setup-hook 'my-frame-setup-hook)
 (add-hook 'after-make-frame-functions 'my-frame-setup-hook)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Buffer
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; blink-cursor-mode
-(blink-cursor-mode)
-
-;; A utility package to collect various Icon Fonts and propertize them within Emacs
-(use-package all-the-icons
-  :pin manual
-  :if (display-graphic-p))
-
-;; set paren mode
-(require 'paren)
-(show-paren-mode t)
-(setq show-paren-style 'mixed)
-
-;; color highlighting
-(global-font-lock-mode t)
-
-;; highlight-symbol.el
-(use-package highlight-symbol
-  :pin manual)
-
-;; reload file on changes
-;; https://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk
-(global-auto-revert-mode t)
-
-;; truncate lines automatically
-(set-default 'truncate-lines t)
-(setq-default show-trailing-whitespace t)
-
-;; display full column indicator (emacs 27+)
-(if (fboundp 'global-display-fill-column-indicator-mode)
-  (global-display-fill-column-indicator-mode))
-
-;; mark tweaks
-(transient-mark-mode t)
-(setq mark-even-if-inactive t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Mini Buffer

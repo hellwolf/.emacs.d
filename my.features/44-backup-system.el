@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'my-lib)
 
 ;; backup policies

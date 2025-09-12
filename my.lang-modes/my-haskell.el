@@ -1,16 +1,17 @@
+;;; -*- lexical-binding: t -*-
 (require 'haskell nil t)
 (require 'haskell-doc nil t)
 (require 'lsp-mode nil t)
 (require 'flycheck nil t)
 (require 'my-lib)
 
-(defun my-haskell-mode-init()
+(defun my-haskell-mode-init ()
   (interactive-haskell-mode)
   (haskell-doc-mode)
   (lsp)
   (xref-etags-mode))
 
-(defun my-haskell-load-and-run()
+(defun my-haskell-load-and-run ()
   "Load and run the current Haskell file main function."
   (interactive)
   (my-point-to-register)
@@ -18,7 +19,7 @@
     (haskell-process-load-file)
     (haskell-interactive-bring)
     (haskell-interactive-mode-run-expr "main")
-    (sleep-for 0 100)
+    (sleep-for 0.1)
     (goto-char (point-max)) ;; (end-of-buffer)
     (pop-to-buffer start-buffer)
     (my-jump-to-register)))

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (provide 'my-lib)
 (require 'seq)
 (require 'cl-lib)

@@ -1,5 +1,7 @@
+;;; -*- lexical-binding: t -*-
 (require 'use-package)
 (require 'evil-org-mode nil t)
+(require 'org-bullets nil t)
 (require 'my-lib)
 
 (use-package org
@@ -61,7 +63,7 @@
                             (nil (warn "Cannot find a sans serif font."))))
                         (base-font-color (face-foreground 'default nil 'default))
                         (levelline `(:inherit default :foreground ,base-font-color))
-                        (headline  `(:inherit default :weight bold :foreground ,base-font-color))
+                        ;; (headline  `(:inherit default :weight bold :foreground ,base-font-color))
                         (titleline `(:inherit default :weight bold :underline t :foreground "LawnGreen"))
                         (docinfo   `(:inherit default :foreground "ForestGreen"))
                         (metaline  `(:inherit default :foreground "SkyBlue")))

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'nix-mode nil t)
 (require 'my-lib)
 

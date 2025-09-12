@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'evil-ex nil t)
 (require 'my-lib)
 

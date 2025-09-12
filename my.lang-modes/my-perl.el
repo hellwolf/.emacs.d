@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (require 'cperl-mode)
 (require 'my-lib)
 

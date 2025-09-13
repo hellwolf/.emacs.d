@@ -1,14 +1,32 @@
-* Features
-- [x] org-mode font faces
-- [x] clipboard & kill-ring system
-- [ ] search system
-- [ ] backup system
-* Utilities
-- [x] rcirc configuration
-- [ ] magit setup
-* Framework
+* Layout
 - [ ] Side Window Manager
-* Code Quality
-- [x] Use ~;;; -*- lexical-binding: t -*-~
+* Buffers and Tabs
+* Editing
+- [x] evil mode
+- [x] spellcheck: flycheck
+- [x] clipboard & kill-ring system
+- [ ] undo: undo-tree
+- [ ] text search: wgrep or ripgrep
+- [x] bookmarks: bm
+- [x] input methods
+* Sub Systems
+** Backup System
+** Choice System
+** File Manager
+- treemacs
+- fzf search file
+- vc search file
+** Hide-Show System
+** Org Mode
+- [x] org-mode font faces
+** Recent File System
+** Terminal System
+* Language Modes
+- [ ] Use tree-sitters
+* Utilities
+** magit
+** Org Presentation
+** rcirc
 * Misc
+- [x] Use ~;;; -*- lexical-binding: t -*-~
 - [-] Nix integration for package-archives

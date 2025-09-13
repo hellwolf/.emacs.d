@@ -98,6 +98,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; support for language modes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package lsp-grammarly
   :pin manual)
 
@@ -108,7 +109,7 @@
 
 (mapc (lambda (x)
         (let ((m (my-lang-mode-to-hook x))
-              (h (my-lang-mode-my-hook x)))
+               (h (my-lang-mode-my-hook x)))
           (add-lang-mode-hooks m)
           (add-hook m #'turn-on-auto-fill)
           (add-hook m #'flyspell-mode)

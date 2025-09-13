@@ -63,10 +63,6 @@
              :\n%s" program output)))
   (kill-buffer (get-buffer "my-try-run")))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Hang Around Function
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; go to char (from wang ying)
 (defun my-go-to-char (n char)
   "Move forward to Nth occurence of CHAR.

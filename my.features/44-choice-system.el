@@ -7,7 +7,8 @@
 ;; alternatives:
 ;; - https://emacs-helm.github.io/helm/
 ;; - https://oremacs.com/swiper/
-(setq ido-everywhere t)
+(setq ido-case-fold t) ; Non-nil if searching of buffer and file names should ignore case.
+(setq ido-everywhere t) ; Non-nil if Ido-Everywhere mode is enabled.
 (ido-mode t)
 
 ;; https://github.com/justbur/emacs-which-key

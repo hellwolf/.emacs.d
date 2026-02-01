@@ -53,12 +53,12 @@
                 (let* (
                         (mono-font
                           (cond
-                            ((x-list-fonts   "Fira Mono") '(:font   "Fira Mono"))
+                            ((x-family-fonts "Fira Mono") '(:font   "Fira Mono"))
                             ((x-family-fonts "Monospace") '(:family "Monospace"))
                             (nil (warn "Cannot find a mono font."))))
                         (sans-font
                           (cond
-                            ((x-list-fonts   "Fira Sans")  '(:font   "Fira Sans"))
+                            ((x-family-fonts "Fira Sans")  '(:font   "Fira Sans"))
                             ((x-family-fonts "Sans Serif") '(:family "Sans Serif"))
                             (nil (warn "Cannot find a sans serif font."))))
                         (base-font-color (face-foreground 'default nil 'default))
